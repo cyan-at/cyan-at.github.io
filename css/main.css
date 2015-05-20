@@ -1,0 +1,35 @@
+html {
+  height:100%;
+  overflow: hidden;
+}
+/* TYPOGRAPHY */
+body{
+  font-family: 'Dosis', sans-serif;
+  overflow-x:hidden;
+  height:100%;
+  padding:10px;
+}
+#currently {
+  text-align: right;
+}
+.project {
+  background-color:#DCDCDC;
+  padding:10px;
+  width:50%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:10px;
+}
+.noneList {
+  list-style-type:none;
+  /*display:inline;*/
+}
+.projectCategory {
+  padding-left:10px;
+}
+#projectCategories {
+  padding:10px;
+}
+#projectCategories h4 {
+  text-align: left;
+}

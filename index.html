@@ -1,26 +1,48 @@
-<style type="text/css">
-  .project {
-    background-color:#DCDCDC;
-    padding:10px;
-    width:300px;
-    margin-bottom:10px;
-  }
-  .noneList {
-    list-style-type:none;
-    display:inline;
-  }
-</style>
-<h3>Charlie Yan's Github page</h3>
+<html>
+<head>
+  <title>charlieyan@github.com</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
 
-<div>
-<h4>Currently: SDE @ Microsoft working on <a href="http://office.com">office.com</a></h4>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/main.js"></script>
+</head>
+<body>
+<div class="row" id="topBar">
+<h3 class="col-lg-6">Charlie Yan's Github page</h3>
+<h4 class="col-lg-6" id="currently">Currently: SDE @ Microsoft working on <a href="http://office.com">office.com</a></h4>
 </div>
 
+<div class="row well" id="projectCategories">
+  <div class="col-md-3">
+    <h4>Web</h4>
+    <ul>
+      <li><a href="#takeeOuteeNo1">Takee Outee No. 1</a></li>
+      <li><a href="#hangoutsArcade">Hangouts Arcade</a></li>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <h4>Mobile</h4>
+    <ul>
+      <li><a href="">Coming soon</a></li>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <h4>Hardware</h4>
+    <ul>
+      <li><a href="">Coming soon</a></li>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <h4>Misc</h4>
+    <ul>
+      <li><a href="">Coming soon</a></li>
+    </ul>  
+  </div>
+</div>
 
-<div>
-  <h4>Web Programming Projects</h4>
-  
-  <div id="takeeoutee" class="project">
+<div>  
+  <div id="takeeOuteeNo1" class="project">
     <a href="http://takeeouteeno1.com/">Takee Outee No. 1</a>
     <br/>
     <ol class="noneList">
@@ -59,25 +81,6 @@
     </ol>
   </div>
 
-</div>
-
-<div>
-  <h4>Mobile Projects</h4>
-  Coming soon
-</div>
-
-<div>
-  <h4>Open Source Code</h4>
-  Coming soon
-</div>
-
-<div>
-  <h4>Hardware</h4>
-  Coming soon
-</div>
-
-<div>
-  <h4>Misc.</h4>
   <div id="catchup.py" class="project">
     <a href="https://gist.github.com/charlieyan/4c396cd3322e860913ce">catchup.py</a>
     <ol class="noneList">
@@ -88,4 +91,5 @@
     <li>use this script to help you out :smiley: by pushing one at a time</li>
     </ol>
   </div>
-</div>
+</body>
+</html>
