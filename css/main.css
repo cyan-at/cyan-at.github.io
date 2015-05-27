@@ -25,6 +25,9 @@ body{
 #projectCategories h4 {
   text-align: left;
 }
+.in_progress {
+  opacity: 0.5;
+}
 
 @media(min-width:800px) {
   .project {
