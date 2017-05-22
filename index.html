@@ -11,8 +11,9 @@
 <body>
 <div class="row" id="topBar">
 <div class="col-lg-12">
-<h3 >Charlie Yan's Github page</h3>
-<h5> <!-- Currently: SDE @ Microsoft working on <a href="http://office.com" target="_blank">office.com</a> | -->
+<h3 >Charlie Yan - Portfolio Page</h3>
+<h5>
+  Currently: Robotics Software Engineer @ <a href="http://pneubotics.com" target="_blank">Pneubotics</a> |
   <a target="_blank" href="./media/resumes/Resume_03_16.pdf">Resume (Mar 2016)</a> | 
   <a target="_blank" href="https://www.linkedin.com/pub/charlie-yan/1a/266/858">LinkedIn</a> 
 </h5>
@@ -44,6 +45,8 @@
     <h4>Misc</h4>
     <ul>
       <li><a href="#plywood_sutro_tower">Plywood Sutro Tower</a></li>
+      <li><a href="#tom_going_away">Tom going away gift</a></li>
+      <li><a href="#jun_and_bruce_hangers">Wedding hangers for Jun and Bruce</a></li>
       <li><a href="#catchup.py">catchup.py</a></li>
       <li><a href="https://upverter.com/charlieyan/" target="_blank">My Upverter page</a></li>
     </ul>  
@@ -66,19 +69,32 @@
   </ul>
 </div>
 
-<div id="plywood_sutro_tower" class="project well">
-  <a href="http://a360.co/2pZXJe2" target="_blank">Plywood Sutro Tower Mark 2</a>
+<div id="tom_going_away" class="project well">
+  <a href="./media/toms_going_away/top.jpg" target="_blank">Tom going away gift</a>
   <ul>
-    <li>Wanted to laser cut out of cardboard or plywood a
-      <a href="https://en.wikipedia.org/wiki/Sutro_Tower" target="_blank">Sutro Tower</a> as a gift to a friend</li>
-    <li>Designed in Autodesk Fusion 360, with parameters to dynamically adjust various lengths of interest, change thickness of material, etc.</li>
-    <li>Originally went off of <a href="https://mountsutro.org/library/sutro/2003-06-14_sti_sutro-tower-diagram.jpg"
-      target="_blank">this schematic</a> but eventually went my own creative route and built from horizontal levels</li>
-    <li>Final results: 
-      <a href="./media/alena_sutro_tower/tower.jpg" target="_blank"> Tower </a> | 
-      <a href="./media/alena_sutro_tower/cutout.jpg" target="_blank"> Cutout </a>
+    <li>My mentor at Pneubotics used a lot of Expo Markers to explain things to me, so when I was about to leave the startup I gave him some Expo markers. I also wanted to give him a container for them all so I decides to laser-cut something.</li>
+    <li>Used <a target="_blank" href="http://www.festi.info/boxes.py/RoundedBox">RoundedBoxes</a> scripting tool to make a living hinge rounded box</li>
+    <li>Took that SVG that the tool outputs, stick another SVG of the company logo onto a surface, and laser cut it</li>
+    <li>Final results:
+      <a href="./media/toms_going_away/top.jpg" target="_blank"> Top </a> | 
+      <a href="./media/toms_going_away/bottom.jpg" target="_blank"> Bottom </a> |
+      <a href="./media/toms_going_away/hinge.jpg" target="_blank"> Hinge </a> |
+      <a href="./media/toms_going_away/teeth.jpg" target="_blank"> Teeth </a>
     </li>
-    <li>Will link to SVG / laser cutter files later, contact for more design files</li>
+  </ul>
+</div>
+
+<div id="jun_and_bruce_hangers" class="project well">
+  <a href="http://a360.co/2pZXJe2" target="_blank">Wedding hangers for Jun and Bruce</a>
+  <ul>
+    <li>
+      My cousin was getting married and I wanted to make her a wedding present using a laser-cutter
+    </li>
+    <li>
+      Used <a href="https://www.sketchapp.com/" target="_blank">Sketch</a> to modify an SVG of a hanger found online, added words and graphics, rounded out corners, etc.</li>
+    <li>Final results:
+      <a href="./media/jun_and_bruce_hanger/english.jpg" target="_blank"> SVG </a>
+    </li>
   </ul>
 </div>
 
@@ -125,10 +141,18 @@
 </div>
 
 <div id="hangoutsArcade" class="project well">
-  <a href="https://chrome.google.com/webstore/detail/hangouts-arcade/mblmaggjclkbdnbfnfiikijmmbbhoekf/" target="_blank">Hangouts Arcade in the Chrome App Store</a>
+  <a href="https://chrome.google.com/webstore/detail/hangouts-arcade/mblmaggjclkbdnbfnfiikijmmbbhoekf/" 
+    target="_blank"
+    onclick="return false;"
+    style="text-decoration: line-through;"
+    >Hangouts Arcade in the Chrome App Store (Discontinued)</a>
   <br/>
   <ul class="">
-    <li><a href="http://hangoutsarcade.io/dashboard">Gameplay Usage Dashboard</a></li>
+    <li><a href="http://hangoutsarcade.io/dashboard"
+    target="_blank"
+    onclick="return false;"
+    style="text-decoration: line-through;"
+    >Gameplay Usage Dashboard</a></li>
     <li><a href="https://developers.google.com/+/hangouts/api/gapi.hangout">Google Hangouts API</a></li>
     <li>How the participant and state parts of the api can be used to synchronize state across multiple hangout sessions </li>
     <li>Using the javascript <b>apply()</b> method to broadcast commands in string format and run them on each app from string to global method call</li>
