@@ -1,0 +1,18 @@
+One thing you learn about working with fabrics is that the order of operations matters. If you dont do a lip on a flat surface and later curve that surface the lip is impossible to do. You must design but also design a temporal architecture
+
+It means you stitch with the insides facing outwards so you can invert the structure after you make the stitch to hide it
+
+another thing is you need to make spares. MAKE SPARES tabs, parts, surfaces
+
+the other thing you learn is to think in all directions all the time. You only think in the direction of the stitch, which can go in 'world frame' in any direction at any time. There is no up or down or left or right. There is only forwards along the path
+
+the other thing you need to deal with is that each stitch is not always a integer multiple of another, so it doesn't QUITE close a loop so you need to do an 'inch forwards' stitch, where you just tap the pedal REALLY carefully to inch the stitch forwards otherwise you get these little triangles that emerge
+
+you get nervous on the 'official' try. you always fuck up more than you did on the practice one
+
+Maybe you just need to get used to it. Making with fabrics is different than CAD and letting a machine do it. It is like welding and lathing it is performative. So there is no perfect. There is good enough.
+
+Simultaneously super strong and super compliant. The trade-off between the two is not here in this medium.
+
+Box stitch pro-tips: on certain lines where the two pieces meet, you make the line LONGER and go past the edge of one piece into directly the other, then reverse back
+Do the two line, then the left edge, then bottom, then right, then from the top right corner, diagonal down, then DO THE BOTTOM TWICE LIKE YOU DO THE TOP, and then from bottom right do diagonal TO THE LEFT
