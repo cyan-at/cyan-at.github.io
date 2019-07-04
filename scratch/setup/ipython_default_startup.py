@@ -9,6 +9,8 @@ np.set_printoptions(suppress=True)
 np.set_printoptions(formatter={'float': '{: 0.3f}'.format})
 
 print "hello from your custom ipython_default_startup.py"
+import os
+print os.path.dirname(os.path.abspath(__file__))
 
 import math
 import cPickle as pickle
