@@ -9,6 +9,9 @@
   <script src="./js/main.js"></script>
 </head>
 <body>
+
+<!-- ----------------------------------------------------- HEADER -->
+
 <div class="row" id="topBar">
 <div class="col-lg-12">
 <h3 >cyan@ - Portfolio Page</h3>
@@ -21,13 +24,17 @@
 </div>
 </div>
 
+<!-- ----------------------------------------------------- INDEX -->
+
 <div class="row well" id="projectCategories">
   <div class="col-md-4">
     <h4>Algorithms / Data structures</h4>
     <ul>
-      <li><a class="in_progress">Relaxed Euler trails (coming soon)</a></li>
-      <li><a class="in_progress">Rectilinear polygons (coming soon)</a></li>
+      <li><a href="#sidefinding">Sidefinding</a></li>
       <li><a class="in_progress">Event Dispatch (coming soon)</a></li>
+
+<!--       <li><a class="in_progress">Relaxed Euler trails (coming soon)</a></li>
+      <li><a class="in_progress">Rectilinear polygons (coming soon)</a></li> -->
     </ul>
     <h4>Scripts / Soft tools</h4>
     <ul>
@@ -38,6 +45,7 @@
     </ul>
     <h4>Apps</h4>
     <ul>
+      <li><a class="in_progress">Meatballs</a></li>
       <li><a href="#takeeOuteeNo1">Takee Outee No. 1</a></li>
       <li><a href="#hangoutsArcade">Hangouts Arcade</a></li>
       <li><a href="#landAhead">Land Ahead Chrome Extension</a></li>
@@ -71,11 +79,50 @@
   </div>
 </div>
 
+<!-- ----------------------------------------------------- CONTENT -->
+
+<div id="sidefinding" class="project well">
+  <a href="" target="_blank">Graph branch-and-bound algorithm to perceive 'sides' from lines</a>
+  <ul>
+    <li>Formalize a 'side' as a traversal of a subset of lines</li>
+
+    <li>3 subproblems</li>
+    <ol>
+      <li>Compute <b><i>adjacency rankings</i></b>: For each line endpoint, sorting all other line endpoints by a <span style="color:rgb(106, 90, 205);"><b>"distance"</b></span> metric: this is the <span style="color:rgb(106, 90, 205);"><b>nearest</b></span> neighbor rankings</li>
+      <li>Build a <b><i>adjacency graph</i></b>: for each endpoint and it's ranking of nearest neighbors, aggregate them into graph nodes using a <span style="color:rgb(255, 99, 71);"><b><i>consensus</i></b></span> approach and construct edges based on original line geometry</li>
+      <li>Find <b><i>traversals == sides:</i></b></li>
+      <ul>
+        <li>Some basis theorems:</li>
+        <ul>
+          <li><span style="color:rgb(255, 0, 0)"><b>Theorem?1</b></span>: If you traverse a graph (against 2D geometry information for (counter)clockwise) and a polarity emerges, if you continue and at every intersection bias and select the <b><i>most</i></b> of that polarity, you will always find the <b>smallest</b> or the <b>longest</b> loop</li>
+          <ul>
+            <li><span style="color:rgb(255, 0, 0)"><b>Theorem?1.1</b></span>: This means if you start at a <b>terminal</b> graph node, you will always end up at another <b>terminal</b> node</li>
+          </ul>
+          <li><span style="color:rgb(0, 0, 255)"><b>Theorem?2</b></span>: Each edge will have 2 traversals across it either from (2 directions, same <span>polarity</span> or (1 direction, different <span>polarities</span>)</li>
+          <li><span style="color:rgb(60, 179, 20)"><b>Theorem?3</b></span>: Every edge is part of a <b><i>terminal-to-terminal</i></b> traversal and/or a <b><i>cyclic</i></b> traversal</li>
+        </ul>
+        <li>Proceed from <span>terminal</span> nodes and traverse, capturing traversal <span>polarity (ccw, cw)</span> and branching on it (<span style="color:rgb(255, 0, 0)"><b>Theorem?1</b></span>), until you reach another <span>terminal</span> node which you always will (<span style="color:rgb(255, 0, 0)"><b>Theorem?1.1</b></span>)</li>
+        <li>Proceed with terminal nodes until you've exhausted terminal-to-terminal traversals (<span style="color:rgb(0, 0, 255)"><b>Theorem?2</b></span>)</li>
+        <li>Remaining edges / nodes will be part of <span>cyclic</span> traversals (<span style="color:rgb(60, 179, 20)"><b>Theorem?3</b></span>)</li>
+        <li>Exhaust all edges, filtering for remaining nodes to start on that are coincident with remaining edges, branching on emerging polarity (<span style="color:rgb(255, 0, 0)"><b>Theorem?1</b></span>), until all edges have 2 traversals (<span style="color:rgb(0, 0, 255)"><b>Theorem?2</b></span>)</li>
+      <ul>
+    </ol>
+
+    <li>Some applications</li>
+    <ol>
+      <li>Counting, and finding 'facing' sides (supplemental intermediate-value-theorem based algorithm involved)</li>
+      <li>A mapping stopping condition (how do I know I'm done mapping an indoor space?)</li>
+      <li>Path planning in indoor spaces heuristic</li>
+    </ol>
+
+  </ul>
+</div>
+
 <div id="drywall_patent" class="project well">
   <a href="./media/US20180283017A1.pdf" target="_blank">"Automated Drywall Planning System and Method"</a>
-  <ul class="">
+  <ul>
     <li>On behalf of Canvas Construction, Inc.</li>
-    <li><a href="https://patents.google.com/patent/US20180281012A1" target="_blank">US20180281012A1</a>
+    <li><a href="https://patents.google.com/patent/US20180281012A1" target="_blank">US20180281012A1</a></li>
   </ul>
 </div>
 
