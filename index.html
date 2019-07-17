@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/main.css">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/main.js"></script>
 </head>
@@ -17,9 +18,9 @@
 <h3 ><a href="mailto:cyanatg@gmail.com">cyan@</a> - Portfolio Page</h3>
 <h5>
   algorithms & things |
-  <a target="_blank" href="./media/resumes/2019_05.pdf">Resume (May 2019)</a> |
-  <a target="_blank" href="https://drive.google.com/file/d/17Dy8WJZ5GvJkAI9pCpwJfbO4u55aXTbu/view?usp=sharing">Work Samples</a> |
-  <a target="_blank" href="https://www.linkedin.com/pub/charlie-yan/1a/266/858">LinkedIn</a>
+  <a target="_blank" href="./media/resumes/2019_05.pdf">CV 2019-05</a> |
+  <a target="_blank" href="https://drive.google.com/file/d/17Dy8WJZ5GvJkAI9pCpwJfbO4u55aXTbu/view?usp=sharing">Samples</a> |
+  <a target="_blank" href="https://www.linkedin.com/pub/charlie-yan/1a/266/858">in</a>
 </h5>
 </div>
 </div>
@@ -83,17 +84,16 @@
 
 <div id="sidefinding" class="project well">
   <a href="" target="_blank">Graph branch-and-bound algorithm to perceive 'sides' from lines</a>
-  <ul>
+  <ul class="shallow">
     <li>Formalize a 'side' as a traversal of a subset of lines</li>
-
     <li>3 subproblems</li>
-    <ol>
+    <ol class="shallow">
       <li>Compute <b><i>adjacency rankings</i></b>: For each line endpoint, sorting all other line endpoints by a <span style="color:rgb(106, 90, 205);"><b>"distance"</b></span> metric: this is the <span style="color:rgb(106, 90, 205);"><b>nearest</b></span> neighbor rankings</li>
       <li>Build a <b><i>adjacency graph</i></b>: for each endpoint and it's ranking of nearest neighbors, aggregate them into graph nodes using a <span style="color:rgb(255, 99, 71);"><b><i>consensus</i></b></span> approach and construct edges based on original line geometry</li>
       <li>Find <b><i>traversals == sides:</i></b></li>
-      <ul>
+      <ul class="shallow">
         <li>Some basis claims/theorems:</li>
-        <ul>
+        <ul class="shallow">
           <li>Let <b><i>polarity</i></b> refer to clockwise or counter-clockwise</li>
           <li><span style="color:rgb(255, 0, 0)"><b>Claim1</b></span>: If you traverse a graph (against 2D geometry information for (counter)clockwise) and a polarity emerges, if you continue and at every node / intersection bias and select the <b><i>most</i></b> of that polarity, you will always find the <b>smallest</b> or the <b>longest</b> traversal</li>
           <ul>
@@ -109,13 +109,16 @@
       <ul>
     </ol>
 
-    <li style="display:none">Some applications</li>
-    <ol style="display:none">
-      <li>Counting, and finding 'facing' sides (supplemental intermediate-value-theorem based algorithm involved) or the centroid of a side</li>
+    <li>Some applications:</li>
+    <ul class="shallow">
+      <li><a href="#" class="sidefinding_counting_facing_0_desc">Counting, and finding 'facing' sides (supplemental intermediate-value-theorem based algorithm involved) or the centroid of a side</a>
+        <img id="sidefinding_counting_facing_0" style="display:none" class="active" src="./media/sidefinding/counting_facing_0_small.gif" class="img-fluid">
+      </li>
+      <!--
       <li>A mapping stopping condition (how do I know I'm done mapping an indoor space?)</li>
       <li>Path planning in indoor spaces heuristic</li>
-    </ol>
-
+      -->
+    </ul>
   </ul>
 </div>
 
