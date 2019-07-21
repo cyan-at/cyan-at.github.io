@@ -67,3 +67,9 @@ body{
   text-decoration: line-through;
 }
 
+#jump_up {
+  position:absolute;
+  bottom:10;
+  right:10;
+}
+
