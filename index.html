@@ -83,7 +83,7 @@
 <!-- ----------------------------------------------------- CONTENT -->
 
 <div id="sidefinding" class="project well">
-  <a href="" target="_blank">Graph branch-and-bound algorithm to perceive 'sides' from lines</a>
+  <a href="#sidefinding">Graph branch-and-bound algorithm to perceive 'sides' from lines</a>
   <ul class="shallow">
     <li>Formalize a 'side' as a traversal of a subset of lines</li>
     <li>3 subproblems</li>
@@ -94,22 +94,22 @@
       <ul class="shallow">
         <li>Some basis claims/theorems:</li>
         <ul class="shallow">
-          <li>Let <b><i>polarity</i></b> refer to clockwise or counter-clockwise</li>
-          <li><span style="color:rgb(255, 0, 0)"><b>Claim1</b></span>: If you traverse a graph (against 2D geometry information for (counter)clockwise) and a polarity emerges, if you continue and at every node / intersection bias and select the <b><i>most</i></b> of that polarity, you will always find the <b>smallest</b> or the <b>longest</b> traversal</li>
+          <li>Let <b style="color:rgb(10, 200, 150)"><i>polarity</i></b> refer to clockwise or counter-clockwise</li>
+          <li><span style="color:rgb(255, 0, 0)"><b>Claim1</b></span>: If you traverse a graph (against 2D geometry information for (counter)clockwise) and a <b style="color:rgb(10, 200, 150)"><i>polarity</i></b> emerges, if you continue and at every node / intersection bias and select the <b><i>most</i></b> of that <b style="color:rgb(10, 200, 150)"><i>polarity</i></b>, you will always find the <b>smallest</b> or the <b>longest</b> traversal</li>
           <ul class="shallow">
             <li><span style="color:rgb(255, 165, 0)"><b>Claim1.1</b></span>: This means if you start at a <b>terminal</b> graph node, you will always end up at another <b>terminal</b> node</li>
           </ul>
-          <li><span style="color:rgb(0, 0, 255)"><b>Claim2</b></span>: Each edge will have 2 traversals across it either from (2 directions, same <span>polarity</span> or (1 direction, different <span>polarities</span>)</li>
+          <li><span style="color:rgb(0, 0, 255)"><b>Claim2</b></span>: Each edge will have 2 traversals across it either from (2 directions, same <b style="color:rgb(10, 200, 150)"><i>polarity</i></b> or (1 direction, different <span>polarities</span>)</li>
           <li><span style="color:rgb(60, 179, 20)"><b>Claim3</b></span>: Every edge is part of a <b><i>terminal-to-terminal</i></b> traversal and/or a <b><i>cyclic</i></b> traversal</li>
         </ul>
-        <li>Proceed from <span>terminal</span> nodes and traverse, capturing traversal <span>polarity (ccw, cw)</span> and branching on it (<span style="color:rgb(255, 0, 0)"><b>Claim1</b></span>), until you reach another <span>terminal</span> node which you always will (<span style="color:rgb(255, 165, 0)"><b>Claim1.1</b></span>)</li>
+        <li>Proceed from <span>terminal</span> nodes and traverse, capturing traversal <b style="color:rgb(10, 200, 150)"><i>polarity</i></b> and branching on it (<span style="color:rgb(255, 0, 0)"><b>Claim1</b></span>), until you reach another <span>terminal</span> node which you always will (<span style="color:rgb(255, 165, 0)"><b>Claim1.1</b></span>)</li>
         <li>Proceed with terminal nodes until you've exhausted terminal-to-terminal traversals (<span style="color:rgb(0, 0, 255)"><b>Claim2</b></span>)</li>
         <li>Remaining edges / nodes will be part of <span>cyclic</span> traversals (<span style="color:rgb(60, 179, 20)"><b>Claim3</b></span>)</li>
-        <li>Exhaust all edges, filtering for remaining nodes to start on that are coincident with remaining edges, branching on emerging polarity (<span style="color:rgb(255, 0, 0)"><b>Claim1</b></span>), until all edges have 2 traversals (<span style="color:rgb(0, 0, 255)"><b>Claim2</b></span>)</li>
+        <li>Exhaust all edges, filtering for remaining nodes to start on that are coincident with remaining edges, branching on emerging <b style="color:rgb(10, 200, 150)"><i>polarity</i></b> (<span style="color:rgb(255, 0, 0)"><b>Claim1</b></span>), until all edges have 2 traversals (<span style="color:rgb(0, 0, 255)"><b>Claim2</b></span>)</li>
       <ul>
     </ol>
 
-    <li>Some applications:</li>
+    <li>some uses:</li>
     <ul class="shallow">
       <li><a href="#" class="sidefinding_0_desc">Counting, finding 'facing' sides (supplemental intermediate-value-theorem based algorithm involved), scene understanding</a>
         <img id="sidefinding_0" src="./media/sidefinding/scene_understanding_1.gif" class="img-fluid">
