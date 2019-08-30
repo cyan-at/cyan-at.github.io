@@ -22,7 +22,7 @@
   math & things |
   <a target="_blank" href="./media/resumes/2019_07.pdf">CV 2019-07</a> |
   <a target="_blank" href="https://drive.google.com/file/d/17Dy8WJZ5GvJkAI9pCpwJfbO4u55aXTbu/view?usp=sharing">Samples</a> |
-  <a target="_blank" href="https://www.linkedin.com/pub/charlie-yan/1a/266/858">in</a>
+  <a target="_blank" href="https://www.linkedin.com/pub/charlie-yan/1a/266/858">Lkdin</a>
 </h5>
 </div>
 </div>
@@ -34,8 +34,7 @@
     <h4>Algorithms / Data structures</h4>
     <ul>
       <li><a href="#sidefinding">Sidefinding</a></li>
-      <!-- <li><a class="in_progress">Event Dispatch (coming soon)</a></li> -->
-
+      <li><a href="#eventdispatch">Event Dispatch</a></li>
 <!--       <li><a class="in_progress">Relaxed Euler trails (coming soon)</a></li>
       <li><a class="in_progress">Rectilinear polygons (coming soon)</a></li> -->
     </ul>
@@ -83,6 +82,47 @@
 </div>
 
 <!-- ----------------------------------------------------- CONTENT -->
+
+<div id="eventdispatch" class="project well">
+  <a href="#eventdispatch">Event Dispatch: event-driven, decentralized orchtectration</a>
+  <ul class="shallow">
+    <li>Inspiration / Motivations</li>
+    <ul class="shallow">
+      <li>
+        Safety
+        <ul class="shallow">
+          <li>Hello</li>
+        </ul>
+      </li>
+      <li>
+        A specific system optimization
+        <ul class="shallow">
+          <li>
+            1. A mobile base with a telescoping mast takes an <span style="color:rgb(255, 99, 71);"><b>uncertain amount of time (temporal)</b></span> and the reaches an <span style="color:rgb(10, 200, 150);"><b>uncertain outcome (spatial)</b></span>
+          </li>
+          <li>
+            2. When / if the mobile base comes down, the system needs to plan a path to the next position, which takes an <span style="color:rgb(255, 99, 71);"><b>uncertain amount of time (temporal)</b></span> and <span style="color:rgb(10, 200, 150);"><b>may/may not find a path (spatial)</b></span>
+          </li>
+          <li>
+            Original high level orchestrator 1. lifts down, <b>then</b> 2. plans
+          </li>
+          <li>
+            How can we make this concurrent or parallel, without knowing <span style="color:rgb(255, 99, 71);"><b>which one finishes first</b></span>, and without knowing the <span style="color:rgb(10, 200, 150);"><b>outcomes of either</b></span>? Without the orchestrator waiting forever?
+          </li>
+        </ul>
+      </li>
+      <li>
+        3yrs of building out orchestration systems for robotic applications, designing for statefulness, concurrency / parallelism, fault-tolerance and recovery, interaction between various interfaces
+      </li>
+      <li>
+        <a href="https://en.wikipedia.org/wiki/Dynamic_dispatch">Dynamic Dispatch</a> / functional polymorphism, refactor sections of the routine to be re-usable, less monolithic (more testable)
+      </li>
+    </ul>
+    <hr>
+    <li>
+    </li>
+  </ul>
+</div>
 
 <div id="sidefinding" class="project well">
   <a href="#sidefinding">Graph branch-and-bound <b><i>parameter-free order-invariant</i></b> algorithm to perceive 'sides' from lines</a>

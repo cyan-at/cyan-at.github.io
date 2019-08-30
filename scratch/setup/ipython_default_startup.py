@@ -14,3 +14,8 @@ print os.path.dirname(os.path.abspath(__file__))
 
 import math
 import cPickle as pickle
+
+# add
+# c.InteractiveShellApp.extensions = ['autoreload']     
+# c.InteractiveShellApp.exec_lines = ['%autoreload 2']
+# to file ~/.ipython/profile_default/ipython_config.py
