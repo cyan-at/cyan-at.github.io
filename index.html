@@ -8,6 +8,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/main.js"></script>
+
+  <!-- 2019-08-30 adding code syntax highlight support -->
+  <link rel="stylesheet" href="./css/default.css">
+  <script src="./js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <!-- change color scheme via this -->
+  <!-- <link rel="stylesheet" href="./css/code_styles/solarized-light.css"> -->
+  <link rel="stylesheet" href="./css/code_styles/github.css">
 </head>
 <body>
 
@@ -121,7 +130,127 @@
     </ul>
     <hr>
     <li>
-      More to come!
+      <a href="#" id="event_dispatch_class_toggle">Event Dispatch class</a>
+      <div id="event_dispatch_example">
+      <pre style="padding:0px;border:none;margin:0px">
+<code class="python">class EventDispatch():
+  def __init__(self,
+    blackboard = None,
+    node_name = "",
+    service_handler = None):
+
+    self.dispatch_lock = Lock()
+    self.lock_registry = {}
+    self.thread_registry = {}
+
+    self.dispatch_switch_lock = Lock()
+    self.dispatch_switch = True
+    wrap_instance_method(self, 'dispatch',
+      call_when_switch_turned_on(
+        self, "dispatch_switch",
+        "dispatch_switch_lock"))
+    <b># if any event sets the switch off
+    # no other events are dispatched
+    # until the switch is cleared</b>
+
+    if blackboard is None:
+      rospy.logwarn(
+        "EventDispatch::no blackboard => no service")
+      return
+
+    if node_name == "":
+      rospy.logwarn(
+        "EventDispatch::no node_name => no service")
+      return
+
+    # given a blackboard with Event definitions
+    self.blackboard = blackboard
+
+  def dispatch(self, event, *args, **kwargs):
+    self.dispatch_lock.acquire()
+    if event.get_id() in self.thread_registry:
+      event.status = DISPATCH_STATUS.DISPATCH_FAILED
+      self.dispatch_lock.release()
+      return
+    self.thread_registry[event.get_id()] = StoppableThread(
+      target=lambda args = args, kwargs = kwargs:\
+        event.dispatch(<b>self</b>, *args, **kwargs),
+      <b># note that the event is dispatched with a reference
+      # to the event dispatch, giving potential access / control
+      # over other events</b>
+      callback=lambda event = event, args = args, kwargs = kwargs:\
+        self.dispatch_finish(event, *args, **kwargs))
+    self.thread_registry[event.get_id()].start()
+    self.dispatch_lock.release()
+
+  def dispatch_finish(self, event, *args, **kwargs):
+    self.thread_registry.pop(event.get_id(), None)
+    event.finish(self, *args, **kwargs)
+    <b># ONLY the event defines what is dispatched next
+    # this includes multiple subsequent concurrent events</b>
+</code>
+      </pre>
+    </div>
+    </li>
+    <li>
+      <a href="#" id="event_class_toggle">Event class</a>
+      <div id="event_example">
+      <pre style="padding:0px;border:none;margin:0px">
+<code class="python">class Event(object):
+  def __init__(self, event_id, *args, **kwargs):
+    self.event_id = event_id
+    self.status = DISPATCH_STATUS.UNKNOWN
+    self.event_dispatch = None
+    self.dispatching_event = None
+
+    wrap_instance_method(self,
+      "dispatch",
+      watchdog_try_to_run_and_notify_failure(
+        "dispatch",
+        self.dispatch_done,
+        self.catch_exception))
+
+    wrap_instance_method(self,
+      "finish",
+      watchdog_try_to_run_and_notify_failure(
+        "finish",
+        self.finish_done,
+        self.catch_exception))
+
+    self.finish_switch_lock = Lock()
+    self.finish_switch = True
+    wrap_instance_method(self, 'finish',
+      call_when_switch_turned_on(
+        self, "finish_switch",
+        "finish_switch_lock")) # [example] decorator
+
+  def get_id(self):
+    return self.__class__.__name__ + "@" + str(self.event_id)
+
+  <b># methods for the child to override</b>
+  def dispatch(self, event_dispatch, *args, **kwargs):
+    if self.get_id() not in event_dispatch.lock_registry:
+      event_dispatch.lock_registry[self.get_id()] = Lock()
+    self.event_dispatch = event_dispatch
+
+  def finish(self, event_dispatch, *args, **kwargs):
+    raise NotImplementedError
+
+  def dispatch_done(self, result_key, result):
+    raise NotImplementedError
+
+  def finish_done(self, result_key, result):
+    raise NotImplementedError
+
+  def catch_exception(self, result_key, result):
+    raise NotImplementedError
+
+  @staticmethod
+  def deserialize(blackboard, req):
+    raise NotImplementedError
+</code>
+      </pre>
+    </div>
     </li>
   </ul>
 </div>
