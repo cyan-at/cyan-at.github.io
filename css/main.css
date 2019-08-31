@@ -88,3 +88,11 @@ hr {
 #event_example {
   display:none;
 }
+
+#blend_diff_sized_samples_example {
+  display:none;
+}
+
+pre {
+  padding:0px;border:none;margin:0px;margin-bottom:0px;
+}

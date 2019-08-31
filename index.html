@@ -49,6 +49,7 @@
     </ul>
     <h4>Scripts / Soft tools</h4>
     <ul>
+      <li><a href="#blend_diff_sized_samples">blend_diff_sized_samples</a></li>
       <li><a href="./scratch/batch_ogv_to_mp4.sh" target="_blank">batch_ogv_to_mp4.sh</a></li>
       <li><a href="./scratch/setup/ipython_default_startup.py" target="_blank">ipython default</a></li>
       <li><a href="#catchup.py">catchup.py</a></li>
@@ -92,8 +93,84 @@
 
 <!-- ----------------------------------------------------- CONTENT -->
 
+<div id="blend_diff_sized_samples" class="project well">
+  <a id="blend_diff_sized_samples_toggle" href="#blend_diff_sized_samples">blend_diff_sized_samples (sDzHs1)</a>
+  <ul>
+    <li>Motivation: to calibrate gain + offset between encoder and gps signal</li>
+    <li>For 2 <b>timestamped</b> datasets with <b><i>different sample rates</i></b>, linear interpolate to down/upsample to get 2 same sized datasets</li>
+    <li>Oranges to oranges</li>
+  </ul>
+<div id="blend_diff_sized_samples_example">
+<pre>
+<code class="python">@staticmethod
+def interpolate(t_i, datum, other_ts, other_datums):
+  # assumes datums are sorted, and filter is in-place
+  # logic same for up-sampling and down-sampling
+  lower_datum = datum
+  lower_idx = -1
+  lower = filter(lambda x: other_ts[x] < t_i,
+    list(xrange(len(other_datums))))
+  if len(lower) > 0:
+    lower_idx = lower[-1]
+    lower_datum = other_datums[lower_idx]
+
+  upper_datum = datum
+  upper_idx = -1
+  upper = filter(lambda x: other_ts[x] > t_i,
+    list(xrange(len(other_datums))))
+  if len(upper) > 0:
+    upper_idx = upper[0]
+    upper_datum = other_datums[upper_idx]
+
+  t_l = other_ts[lower_idx] if lower_idx >= 0 else t_i
+  t_u = other_ts[upper_idx] if upper_idx >= 0 else t_i
+
+  # implicit linear transition model
+  ratio = (t_i - t_l) / (t_u - t_l)
+  return lower_datum + ratio * (upper_datum - lower_datum)
+
+@staticmethod
+def blend_diff_sized_samples(
+  xs_times, xs_list, ys_times, ys_list,
+  direction = "down", custom_size = None):
+  assert(len(xs_times) == len(xs_list))
+  assert(len(ys_times) == len(ys_list))
+  assert(direction in ["up", "down", "custom"])
+
+  if len(xs_list) == len(ys_list):
+    return xs_times, xs_list, ys_times, ys_list
+
+  min_times = xs_times if len(xs_list) < len(xs_list) else ys_times
+  min_list = xs_list if len(xs_list) < len(ys_list) else ys_list
+  max_times = ys_times if len(xs_list) < len(xs_list) else xs_times
+  max_list = ys_list if len(xs_list) < len(ys_list) else xs_list
+  min_is_x = len(xs_list) < len(ys_list)
+
+  if direction == "down":
+    # downsampled_list is from max_times / max_list
+    downsampled_list = map(lambda i: Util.interpolate(
+      min_times[i], min_list[i], max_times, max_list),
+      list(xrange(len(min_list))))
+    if min_is_x:
+      return min_times, min_list, min_times, downsampled_list
+    else:
+      return min_times, downsampled_list, min_times, min_list
+  else:
+      # upsampled list is from min_times, min_list
+      upsampled_list = map(lambda i: Util.interpolate(
+        max_times[i], max_list[i], min_times, min_list),
+        list(xrange(len(max_list))))
+      if min_is_x:
+        return max_times, upsampled_list, max_times, max_list
+      else:
+        return max_times, max_list, max_times, upsampled_list
+</code>
+</pre>
+</div>
+</div>
+
 <div id="eventdispatch" class="project well">
-  <a href="#eventdispatch">Event Dispatch: event-driven, decentralized orchtectration</a>
+  <a href="#" id="event_dispatch_class_toggle">Event Dispatch</a>: <a href="#" id="event_class_toggle">event</a>-driven, decentralized orchtectration
   <ul class="shallow">
     <li>Inspiration / Motivations</li>
     <ul class="shallow">
@@ -125,14 +202,13 @@
         3yrs of building out orchestration systems for robotic applications, designing for statefulness, concurrency / parallelism, fault-tolerance and recovery, interaction between various interfaces
       </li>
       <li>
-        <a href="https://en.wikipedia.org/wiki/Dynamic_dispatch">Dynamic Dispatch</a> / functional polymorphism, refactor sections of the routine to be re-usable, less monolithic (more testable)
+        <a href="https://en.wikipedia.org/wiki/Dynamic_dispatch" target="_blank">Dynamic Dispatch</a> / functional polymorphism, refactor sections of the routine to be re-usable, less monolithic (more testable)
       </li>
     </ul>
-    <hr>
-    <li>
-      <a href="#" id="event_dispatch_class_toggle">Event Dispatch class</a>
-      <div id="event_dispatch_example">
-      <pre style="padding:0px;border:none;margin:0px">
+  </ul>
+
+<div id="event_dispatch_example">
+<pre>
 <code class="python">class EventDispatch():
   def __init__(self,
     blackboard = None,
@@ -189,13 +265,11 @@
     <b># ONLY the event defines what is dispatched next
     # this includes multiple subsequent concurrent events</b>
 </code>
-      </pre>
-    </div>
-    </li>
-    <li>
-      <a href="#" id="event_class_toggle">Event class</a>
-      <div id="event_example">
-      <pre style="padding:0px;border:none;margin:0px">
+</pre>
+</div>
+
+<div id="event_example">
+<pre>
 <code class="python">class Event(object):
   def __init__(self, event_id, *args, **kwargs):
     self.event_id = event_id
@@ -249,10 +323,9 @@
   def deserialize(blackboard, req):
     raise NotImplementedError
 </code>
-      </pre>
-    </div>
-    </li>
-  </ul>
+</pre>
+</div>
+
 </div>
 
 <div id="sidefinding" class="project well">

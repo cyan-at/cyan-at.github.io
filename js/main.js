@@ -10,4 +10,8 @@ $(document).ready(function(){
   $("#event_class_toggle").click(function(){
     $("#event_example").toggle();
   });
+
+  $("#blend_diff_sized_samples_toggle").click(function(){
+    $("#blend_diff_sized_samples_example").toggle();
+  });
 });
