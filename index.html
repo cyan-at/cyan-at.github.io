@@ -176,7 +176,7 @@
       target=lambda args = args, kwargs = kwargs:\
         event.dispatch(<b>self</b>, *args, **kwargs),
       <b># note that the event is dispatched with a reference
-      # to the event dispatch, giving potential access / control
+      # to the event dispatch, giving access / control
       # over other events</b>
       callback=lambda event = event, args = args, kwargs = kwargs:\
         self.dispatch_finish(event, *args, **kwargs))
@@ -222,7 +222,7 @@
     wrap_instance_method(self, 'finish',
       call_when_switch_turned_on(
         self, "finish_switch",
-        "finish_switch_lock")) # [example] decorator
+        "finish_switch_lock"))
 
   def get_id(self):
     return self.__class__.__name__ + "@" + str(self.event_id)
