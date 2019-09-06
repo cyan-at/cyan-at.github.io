@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/main.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="./js/jquery.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/main.js"></script>
 
@@ -199,7 +199,7 @@ def blend_diff_sized_samples(
         </ul>
       </li>
       <li>
-        3yrs of building out orchestration systems for robotic applications, designing for statefulness, concurrency / parallelism, fault-tolerance and recovery, interaction between various interfaces
+        3yrs of building out orchestration systems for various robotics use cases, designing for statefulness, concurrency / parallelism, fault-tolerance and recovery, interaction between various interfaces
       </li>
       <li>
         <a href="https://en.wikipedia.org/wiki/Dynamic_dispatch" target="_blank">Dynamic Dispatch</a> / functional polymorphism, refactor sections of the routine to be re-usable, less monolithic (more testable)
@@ -237,6 +237,9 @@ def blend_diff_sized_samples(
             <li><span style="color:rgb(255, 165, 0)"><b>Claim1.1</b></span>: This means if you start at a <b>terminal</b> graph node, you will always end up at another <b>terminal</b> node</li>
           </ul>
           <li><span style="color:rgb(0, 0, 255)"><b>Claim2</b></span>: Each edge will have 2 traversals across it either from (2 directions, same <b style="color:rgb(10, 200, 150)"><i>polarity</i></b> or (1 direction, different <span>polarities</span>)</li>
+          <ul>
+            <li>!!! Basis for <a href="#relaxed_euler_paths">relaxed euler paths</a></li>
+          </ul>
           <li><span style="color:rgb(60, 179, 20)"><b>Claim3</b></span>: Every edge is part of a <b><i>terminal-to-terminal</i></b> traversal and/or a <b><i>cyclic</i></b> traversal</li>
         </ul>
         <li>Proceed from <span>terminal</span> nodes and traverse, capturing traversal <b style="color:rgb(10, 200, 150)"><i>polarity</i></b> and branching on it (<span style="color:rgb(255, 0, 0)"><b>Claim1</b></span>), until you reach another <span>terminal</span> node which you always will (<span style="color:rgb(255, 165, 0)"><b>Claim1.1</b></span>)</li>
@@ -249,12 +252,18 @@ def blend_diff_sized_samples(
     <li>some uses:</li>
     <ul class="shallow">
       <li><a href="#" class="sidefinding_0_desc">Counting, finding 'facing' sides (BZl03E supplemental <b><i>intermediate-value-theorem</i></b> based algorithm involved), scene understanding</a>
-        <img id="sidefinding_0" src="./media/sidefinding/scene_understanding_1.gif" class="img-fluid">
+        <img id="sidefinding_0" src="./media/sidefinding/scene_understanding_0.gif" class="img-fluid">
       </li>
       <!--
       <li>A mapping stopping condition (how do I know I'm done mapping an indoor space?)</li>
       <li>Path planning in indoor spaces heuristic</li>
       -->
+<!--       <li><a href="#" class="sidefinding_2_desc">Toolpath generation via inward / outward tesselation</a>
+        <img id="sidefinding_2" src="./media/sidefinding/scene_understanding_2.gif" class="img-fluid">
+      </li>
+      <li><a href="#" class="sidefinding_3_desc">Openings sampling heuristic for RRT</a>
+        <img id="sidefinding_3" src="./media/sidefinding/scene_understanding_3.gif" class="img-fluid">
+      </li> -->
     </ul>
   </ul>
 </div>
