@@ -204,6 +204,24 @@ def blend_diff_sized_samples(
       <li>
         <a href="https://en.wikipedia.org/wiki/Dynamic_dispatch" target="_blank">Dynamic Dispatch</a> / functional polymorphism, refactor sections of the routine to be re-usable, less monolithic (more testable)
       </li>
+      <li><span style="color:rgb(255, 0, 0)"><b>Iteration</b></span> vs <span style="color:rgb(0, 0, 255)"><b>Recursion</b></span>
+        <ul class="shallow">
+          <li>In robotics systems there is a <b>compute / responsibility scaling issue</b> where a <b>tree hierarchy</b> of "higher" level controllers (orchestrators) need to <span style="color:rgb(255, 0, 0)"><b>iterate</b></span> over primitives, data structures, and intake heterogeneous data</li>
+          <li>
+            Instead, we can use <span style="color:rgb(0, 0, 255)"><b>recursion</b></span>, so <b><i>only the bits most local to a primitive dictate its role in a larger system</i></b>
+          </li>
+          <li>Instead of a <b>tree topology</b>, event-dispatch systems manifest a <b>concurrent network topology</b></li>
+          <li>* <span style="color:rgb(255, 0, 0)"><b>Iteration</b></span> <b>requires a "higher" compute process</b> but <span style="color:rgb(0, 0, 255)"><b>recursion</b></span> does not!</li>
+        </ul>
+      </li>
+
+      <li>VS. <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span>
+        <ul class="shallow">
+          <li>This has been compared to <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> often, but <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> can <b>only be in 1 state at a time</b> but event dispatch is <b>fundamentally concurrent and parallel</b></li>
+          <li>In addition, <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> often exist at the highest level controller but events are often <b>serialized-deserialize'd</b> over-the-wire <b>between processes</b></li>
+        </ul>
+      </li>
+
     </ul>
   </ul>
 
