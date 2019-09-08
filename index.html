@@ -94,12 +94,12 @@
 <!-- ----------------------------------------------------- CONTENT -->
 
 <div id="blend_diff_sized_samples" class="project well">
-  <a id="blend_diff_sized_samples_toggle" href="#blend_diff_sized_samples">blend_diff_sized_samples (sDzHs1)</a>
+  <a id="blend_diff_sized_samples_toggle" href="#blend_diff_sized_samples_example">blend_diff_sized_samples (sDzHs1)</a>
   <ul>
-    <li>Motivation: to calibrate gain + offset between encoder and gps signal</li>
+    <li>Motivation: to calibrate gain + offset between <a id="encoder_gps_blending" href="#encoder_gps_blending_example">encoder and gps signal</a></li>
     <li>For 2 <b>timestamped</b> datasets with <b><i>different sample rates</i></b>, linear interpolate to down/upsample to get 2 same sized datasets</li>
-    <li>Oranges to oranges</li>
   </ul>
+  <img id="encoder_gps_blending_example" src="./media/d_00_encoder_vs_gps_blending.png" class="img-fluid">
 <div id="blend_diff_sized_samples_example">
 <pre>
 <code class="python">@staticmethod

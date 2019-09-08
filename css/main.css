@@ -93,6 +93,14 @@ hr {
   display:none;
 }
 
+#encoder_gps_blending_example {
+  max-width: 100%;
+  display:none;
+/*  position:absolute;
+  bottom:0;
+  right:0;*/
+}
+
 pre {
   padding:0px;border:none;margin:0px;margin-bottom:0px;
 }

@@ -14,4 +14,9 @@ $(document).ready(function(){
   $("#blend_diff_sized_samples_toggle").click(function(){
     $("#blend_diff_sized_samples_example").toggle();
   });
+
+  $("#encoder_gps_blending").click(function(){
+    $("#encoder_gps_blending_example").toggle();
+  });
+
 });
