@@ -209,6 +209,10 @@ def blend_diff_sized_samples(
         <li>This is especially relevant to systems dealing with people: <b>people are sources of uncertainty</b></li>
       </ul>
     </li>
+
+    <li>
+      <a href="https://en.wikipedia.org/wiki/Markov_chain" target="_blank">Markov chains</a>: P(event57 | event56, event45 ... state17 ... event0) = P(event57 | event56)
+    </li>
   </ul>
 
   <hr>Details
@@ -256,10 +260,15 @@ def blend_diff_sized_samples(
       </li>
 
       <li>How event dispatch systems use <b>blackboards</b>
+        <ul class="shallow">
+          <li>In event-dispatch systems, each actor has a blackboard (look-up table)</li>
+          <li>An actor's blackboard acts as an <b><i>abstract factory</i></b> to the actor, deserializing <b><i>over-the-wire serialized events</i></b> to concrete event instances</li>
+          <ul class="shallow">
+            <li>Best practice: by default, blackboards should deserialize to <b><i>nothing</i></b>, and dynamically update to deserialize to concrete event instances <b><i>only as / when needed</i></b></li>
+          </ul>
+        </ul>
       </li>
 
-      <li>Best practices
-      </li>
     </ul>
   </ul>
 
