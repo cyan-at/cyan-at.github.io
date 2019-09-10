@@ -266,7 +266,7 @@ def blend_diff_sized_samples(
           <li>In event-dispatch systems, each actor has a blackboard (look-up table)</li>
           <li>An actor's blackboard acts as an <b><i>abstract factory</i></b> to the actor, deserializing <b><i>over-the-wire serialized events</i></b> to concrete event instances</li>
           <ul class="shallow">
-            <li>Best practice: by default, blackboards should deserialize to <b><i>nothing</i></b>, and dynamically update to deserialize to concrete event instances <b><i>only as / when needed</i></b></li>
+            <li>Best practice: by default, blackboards should deserialize to <b><i>nothing</i></b>, and dynamically update the blackboard to deserialize to concrete event instances <b><i>only as / when needed</i></b></li>
           </ul>
         </ul>
       </li>
