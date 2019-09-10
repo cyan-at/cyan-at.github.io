@@ -219,59 +219,57 @@ def blend_diff_sized_samples(
 
   <hr>Details
   <ul class="shallow">
-    <ul class="shallow">
-      <li>Event dispatch systems are organized into <b>3 elements</b>
-        <ul class="shallow">
-          <li>
-            Phenomenon: external physical processes, latent variables, numerical or structural significances, things the system <b><i>captures</i></b> and <b><i>produces</i></b>
-            <ul class="shallow">
-              <li>A person walking in front of an system mid-motion</li>
-              <li>A mobile base or arm or solenoid actuating</li>
-            </ul>
-          </li>
-          <li>
-            Actors: Compute processes, electrical components that <b>convert / transduce / capture phenomenon</b> into <b><i>events</i></b>
-            <ul class="shallow">
-              <li>A machine learning process predicts the words of an audio signal</li>
-              <li>A kalman filter determines the estimate of a position</li>
-              <li>A light sensor circuit triggers when someone turns on the light</li>
-            </ul>
-          </li>
-          <li>
-            Events: Logic objects that both encode <b>what happens</b> and <b>what event happens next</b> either <i>within the same actor or throughout other actors</i>
-          </li>
-        </ul>
-      </li>
-
-      <li><span style="color:rgb(255, 0, 0)"><b>Iteration</b></span> vs <span style="color:rgb(0, 0, 255)"><b>Recursion</b></span>
-        <ul class="shallow">
-          <li>In robotics systems there is a <b>compute / responsibility scaling issue</b> where a <b>tree hierarchy</b> of "higher" level controllers (orchestrators) need to <span style="color:rgb(255, 0, 0)"><b>iterate</b></span> over primitives, data structures, and intake heterogeneous data</li>
-          <li>
-            Instead, we can use <span style="color:rgb(0, 0, 255)"><b>recursion</b></span>, so <b><i>only the bits most local to a primitive dictate its role in a larger system</i></b>
-          </li>
-          <li>Instead of a <b>tree topology</b>, event-dispatch systems manifest a <b>concurrent network topology</b></li>
-          <li>* <span style="color:rgb(255, 0, 0)"><b>Iteration</b></span> <b>requires a "higher" compute process</b> but <span style="color:rgb(0, 0, 255)"><b>recursion</b></span> does not!</li>
-        </ul>
-      </li>
-
-      <li>VS. <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span>
-        <ul class="shallow">
-          <li>This has been compared to <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> often, but <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> can <b>only be in 1 state at a time</b> but event dispatch is <b>fundamentally concurrent and parallel</b></li>
-          <li>In addition, <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> often exist at the highest level controller but events are often <b>serialized-deserialize'd</b> over-the-wire <b>between processes</b></li>
-        </ul>
-      </li>
-
-      <li>How event dispatch systems use <a href="https://en.wikipedia.org/wiki/Blackboard_system" target="_blank">blackboards</a>
-        <ul class="shallow">
-          <li>In event-dispatch systems, each actor has a blackboard (look-up table)</li>
-          <li>An actor's blackboard acts as an <b><i>abstract factory</i></b> to the actor, deserializing <b><i>over-the-wire serialized events</i></b> to concrete event instances</li>
+    <li>Event dispatch systems are organized into <b>3 elements</b>
+      <ul class="shallow">
+        <li>
+          Phenomenon: external physical processes, latent variables, numerical or structural significances, things the system <b><i>captures</i></b> and <b><i>produces</i></b>
           <ul class="shallow">
-            <li>Best practice: by default, blackboards should deserialize to <b><i>nothing</i></b>, and dynamically update the blackboard to deserialize to concrete event instances <b><i>only as / when needed</i></b></li>
+            <li>A person walking in front of an system mid-motion</li>
+            <li>A mobile base or arm or solenoid actuating</li>
           </ul>
-        </ul>
-      </li>
+        </li>
+        <li>
+          Actors: Compute processes, electrical components that <b>convert / transduce / capture phenomenon</b> into <b><i>events</i></b>
+          <ul class="shallow">
+            <li>A machine learning process predicts the words of an audio signal</li>
+            <li>A kalman filter determines the estimate of a position</li>
+            <li>A light sensor circuit triggers when someone turns on the light</li>
+          </ul>
+        </li>
+        <li>
+          Events: Logic objects that both encode <b>what happens</b> and <b>what event happens next</b> either <i>within the same actor or throughout other actors</i>
+        </li>
+      </ul>
+    </li>
 
-    </ul>
+    <li><span style="color:rgb(255, 0, 0)"><b>Iteration</b></span> vs <span style="color:rgb(0, 0, 255)"><b>Recursion</b></span>
+      <ul class="shallow">
+        <li>In robotics systems there is a <b>compute / responsibility scaling issue</b> where a <b>tree hierarchy</b> of "higher" level controllers (orchestrators) need to <span style="color:rgb(255, 0, 0)"><b>iterate</b></span> over primitives, data structures, and intake heterogeneous data</li>
+        <li>
+          Instead, we can use <span style="color:rgb(0, 0, 255)"><b>recursion</b></span>, so <b><i>only the bits most local to a primitive dictate its role in a larger system</i></b>
+        </li>
+        <li>Instead of a <b>tree topology</b>, event-dispatch systems manifest a <b>concurrent network topology</b></li>
+        <li>* <span style="color:rgb(255, 0, 0)"><b>Iteration</b></span> <b>requires a "higher" compute process</b> but <span style="color:rgb(0, 0, 255)"><b>recursion</b></span> does not!</li>
+      </ul>
+    </li>
+
+    <li>VS. <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span>
+      <ul class="shallow">
+        <li>This has been compared to <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> often, but <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> can <b>only be in 1 state at a time</b> but event dispatch is <b>fundamentally concurrent and parallel</b></li>
+        <li>In addition, <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> often exist at the highest level controller but events are often <b>serialized-deserialize'd</b> over-the-wire <b>between processes</b></li>
+      </ul>
+    </li>
+
+    <li>How event dispatch systems use <a href="https://en.wikipedia.org/wiki/Blackboard_system" target="_blank">blackboards</a>
+      <ul class="shallow">
+        <li>In event-dispatch systems, each actor has a blackboard (look-up table)</li>
+        <li>An actor's blackboard acts as an <b><i>abstract factory</i></b> to the actor, deserializing <b><i>over-the-wire serialized events</i></b> to concrete event instances</li>
+        <ul class="shallow">
+          <li>Best practice: by default, blackboards should deserialize to <b><i>nothing</i></b>, and dynamically update the blackboard to deserialize to concrete event instances <b><i>only as / when needed</i></b></li>
+        </ul>
+      </ul>
+    </li>
+
   </ul>
 
   <hr>Disadvantages
