@@ -198,8 +198,8 @@ def blend_diff_sized_samples(
       </ul>
     </li>
 
-    <li>3yrs of building out orchestration systems for various robotics use cases, designing for statefulness, concurrency / parallelism, fault-tolerance and recovery, interaction between various interfaces
-    </li>
+<!--     <li>3yrs of building out orchestration systems for various robotics use cases, designing for statefulness, concurrency / parallelism, fault-tolerance and recovery, interaction between various interfaces
+    </li> -->
 
     <li><a href="https://en.wikipedia.org/wiki/Dynamic_dispatch" target="_blank">Dynamic Dispatch</a> / functional polymorphism, refactor sections of the routine to be re-usable, less monolithic (more testable)
     </li>
@@ -276,7 +276,7 @@ def blend_diff_sized_samples(
   <ul class="shallow">
     <li>Events are supposed to be <b>as decentralized as possible</b>, so each event constructor needs to reconstitute data in duplicated memory usage or computation</li>
     <li>Working with an <b>fundamentally concurrent / parallel system</b> you need to be <b><i>really, REALLY</i></b> careful with
-      <ul>
+      <ul class="shallow">
         <li>Race conditions: events waiting on a mutex forever (resources AND data)</li>
         <li>Race conditions: starvation of events or event streams, data corruption, etc.</li>
       </ul>
