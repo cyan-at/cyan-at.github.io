@@ -171,39 +171,72 @@ def blend_diff_sized_samples(
 
 <div id="eventdispatch" class="project well">
   <a href="#" id="event_dispatch_class_toggle">Event Dispatch</a>: <a href="#" id="event_class_toggle">event</a>-driven, decentralized orchtectration (JQ3uqm)
+
+  <hr>Inspiration / Motivations
   <ul class="shallow">
-    <li>Inspiration / Motivations</li>
+    <li>Safety
+      <ul class="shallow">
+        <li>In a concurrent system, if one section of orchestration <b>fatally crashes</b>, how do we guarantee that <b>no concurrent or subsequent sections proceed</b> until an all-clear?</li>
+        <li>How do we scale this beyond checking a globally-scoped, mutex-protected, atomically updating <b>sentinel value</b>?</li>
+      </ul>
+    </li>
+
+    <li>A specific system optimization
+      <ul class="shallow">
+        <li>
+          1. A mobile base with a telescoping mast takes an <span style="color:rgb(255, 99, 71);"><b>uncertain amount of time (temporal)</b></span> and the reaches an <span style="color:rgb(10, 200, 150);"><b>uncertain outcome (spatial)</b></span>
+        </li>
+        <li>
+          2. When / if the mobile base comes down, the system needs to plan a path to the next position, which takes an <span style="color:rgb(255, 99, 71);"><b>uncertain amount of time (temporal)</b></span> and <span style="color:rgb(10, 200, 150);"><b>may/may not find a path (spatial)</b></span>
+        </li>
+        <li>
+          Original high level orchestrator 1. lifts down, <b>then</b> 2. plans
+        </li>
+        <li>
+          How can we make this concurrent or parallel, without knowing <span style="color:rgb(255, 99, 71);"><b>which one finishes first</b></span>, and without knowing the <span style="color:rgb(10, 200, 150);"><b>outcomes of either</b></span>? Without the orchestrator waiting forever?
+        </li>
+      </ul>
+    </li>
+
+    <li>3yrs of building out orchestration systems for various robotics use cases, designing for statefulness, concurrency / parallelism, fault-tolerance and recovery, interaction between various interfaces
+    </li>
+
+    <li><a href="https://en.wikipedia.org/wiki/Dynamic_dispatch" target="_blank">Dynamic Dispatch</a> / functional polymorphism, refactor sections of the routine to be re-usable, less monolithic (more testable)
+    </li>
+
+    <li>Dealing with <b>spatial and temporal uncertainty</b>: you cannot know <i>when something will happen</i> nor <i>what the outcome is when it does</i>, so only let the part of the system <i>most local</i> to a phenomenon deal with it
+      <ul class="shallow">
+        <li>This is especially relevant to systems dealing with people: <b>people are sources of uncertainty</b></li>
+      </ul>
+    </li>
+  </ul>
+
+  <hr>Details
+  <ul class="shallow">
     <ul class="shallow">
-      <li>
-        Safety
-        <ul class="shallow">
-          <li>In a concurrent system, if one section of orchestration <b>fatally crashes</b>, how do we guarantee that <b>no concurrent or subsequent sections proceed</b> until an all-clear?</li>
-          <li>How do we scale this beyond checking a globally-scoped, mutex-protected, atomically updating <b>sentinel value</b>?</li>
-        </ul>
-      </li>
-      <li>
-        A specific system optimization
+      <li>Event dispatch systems are organized into <b>3 elements</b>
         <ul class="shallow">
           <li>
-            1. A mobile base with a telescoping mast takes an <span style="color:rgb(255, 99, 71);"><b>uncertain amount of time (temporal)</b></span> and the reaches an <span style="color:rgb(10, 200, 150);"><b>uncertain outcome (spatial)</b></span>
+            Phenomenon: external physical processes, latent variables, numerical or structural significances, things the system <b><i>captures</i></b> and <b><i>produces</i></b>
+            <ul class="shallow">
+              <li>A person walking in front of an system mid-motion</li>
+              <li>A mobile base or arm or solenoid actuating</li>
+            </ul>
           </li>
           <li>
-            2. When / if the mobile base comes down, the system needs to plan a path to the next position, which takes an <span style="color:rgb(255, 99, 71);"><b>uncertain amount of time (temporal)</b></span> and <span style="color:rgb(10, 200, 150);"><b>may/may not find a path (spatial)</b></span>
+            Actors: Compute processes, electrical components that <b>convert / transduce / capture phenomenon</b> into <b><i>events</i></b>
+            <ul class="shallow">
+              <li>A machine learning process predicts the words of an audio signal</li>
+              <li>A kalman filter determines the estimate of a position</li>
+              <li>A light sensor circuit triggers when someone turns on the light</li>
+            </ul>
           </li>
           <li>
-            Original high level orchestrator 1. lifts down, <b>then</b> 2. plans
-          </li>
-          <li>
-            How can we make this concurrent or parallel, without knowing <span style="color:rgb(255, 99, 71);"><b>which one finishes first</b></span>, and without knowing the <span style="color:rgb(10, 200, 150);"><b>outcomes of either</b></span>? Without the orchestrator waiting forever?
+            Events: Logic objects that both encode <b>what happens</b> and <b>what event happens next</b> either <i>within the same actor or throughout other actors</i>
           </li>
         </ul>
       </li>
-      <li>
-        3yrs of building out orchestration systems for various robotics use cases, designing for statefulness, concurrency / parallelism, fault-tolerance and recovery, interaction between various interfaces
-      </li>
-      <li>
-        <a href="https://en.wikipedia.org/wiki/Dynamic_dispatch" target="_blank">Dynamic Dispatch</a> / functional polymorphism, refactor sections of the routine to be re-usable, less monolithic (more testable)
-      </li>
+
       <li><span style="color:rgb(255, 0, 0)"><b>Iteration</b></span> vs <span style="color:rgb(0, 0, 255)"><b>Recursion</b></span>
         <ul class="shallow">
           <li>In robotics systems there is a <b>compute / responsibility scaling issue</b> where a <b>tree hierarchy</b> of "higher" level controllers (orchestrators) need to <span style="color:rgb(255, 0, 0)"><b>iterate</b></span> over primitives, data structures, and intake heterogeneous data</li>
@@ -222,19 +255,35 @@ def blend_diff_sized_samples(
         </ul>
       </li>
 
+      <li>How event dispatch systems use <b>blackboards</b>
+      </li>
+
+      <li>Best practices
+      </li>
     </ul>
   </ul>
 
-<div id="event_dispatch_example">
-<pre>
-</pre>
-</div>
+  <hr>Disadvantages
+  <ul class="shallow">
+    <li>Events are supposed to be <b>as decentralized as possible</b>, so each event constructor needs to reconstitute data in duplicated memory usage or computation</li>
+    <li>Working with an <b>fundamentally concurrent / parallel system</b> you need to be <b><i>really, REALLY</i></b> careful with
+      <ul>
+        <li>Race conditions: events waiting on a mutex forever (resources AND data)</li>
+        <li>Race conditions: starvation of events or event streams, data corruption, etc.</li>
+      </ul>
+    </li>
+    <li>Because there is no central orchestrator, 'global' progress requires extra structure</li>
+  </ul>
 
-<div id="event_example">
-<pre>
-</pre>
-</div>
+  <div id="event_dispatch_example">
+  <pre>
+  </pre>
+  </div>
 
+  <div id="event_example">
+  <pre>
+  </pre>
+  </div>
 </div>
 
 <div id="sidefinding" class="project well">
