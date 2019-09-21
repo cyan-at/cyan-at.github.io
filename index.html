@@ -242,6 +242,14 @@ def blend_diff_sized_samples(
         </li>
         <li>
           Events: Logic objects that both encode <b>what happens</b> and <b>what event happens next</b> either <i>within the same actor or throughout other actors</i>
+          <ul class="shallow">
+            <li>Best practice: as-needed existence, waiting on <b><i>conditional variables</i></b> or <b><i>shared resource mutexes</i></b> should happen:</li>
+            <ul class="shallow">
+              <li>ideally <span style="color:rgb(255, 0, 0)"><b>NOT</b></span> dispatch the relevant event that waits for it</li>
+              <li>ideally <span style="color:rgb(255, 0, 0)"><b>NOT</b></span> with event dispatch's dispatching logic</li>
+              <li>ideally <span style="color:rgb(60, 179, 20)"><b>YES</b></span> in the PRIOR event's <b><i>finish</i></b> method <b><i>BEFORE dispatching the relevant event</i></b></li>
+            </ul>
+          </ul>
         </li>
       </ul>
     </li>
