@@ -219,6 +219,11 @@ def blend_diff_sized_samples(
     </li>
 
     <li>Sneezing / feelings / reflexes - complex behaviors invoked / parameterized <b><i>outside the voluntary nervous system</i></b></li>
+
+    <li>The famous quote <i>...It is an infinite sphere, the center of which is everywhere, the circumference nowhere.</i></li>
+
+    <li><a href="http://web.eecs.umich.edu/~brehob/" target="_blank">Professor Mark Brehob's</a> quote: "bits are bits!"</li>
+
   </ul>
 
   <hr>Details
@@ -279,6 +284,17 @@ def blend_diff_sized_samples(
         <ul class="shallow">
           <li>Best practice: by default, blackboards should deserialize to <b><i>nothing</i></b>, and dynamically update the blackboard to deserialize to concrete event instances <b><i>only as / when needed</i></b></li>
           <li>Optionally, blackboards can deserialize as a function of the <i>source</i> of the event message or implement authentication / authorization protections</li>
+        </ul>
+      </ul>
+    </li>
+
+    <li>An augmented <a href="https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem" target="_blank">producer-consumer system</a></span>
+      <ul class="shallow">
+        <li>Event-dispatch systems <b><i>can be considered</i></b> a <b><i>type of producer-consumer</i></b> system</li>
+        <li>The main innovation here is that the data produced and consumed <b><i>define 2 extra pieces of information</i></b></li>
+        <ol class="shallow">
+          <li><b><i>How</i></b> to consume the data</li>
+          <li>What the <b><i>consumer PRODUCES</i></b> next</li>
         </ul>
       </ul>
     </li>
