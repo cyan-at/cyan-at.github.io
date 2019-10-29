@@ -253,6 +253,10 @@ def blend_diff_sized_samples(
               <li>ideally <span style="color:rgb(255, 0, 0)"><b>NOT</b></span> dispatch the relevant event that waits for it</li>
               <li>ideally <span style="color:rgb(255, 0, 0)"><b>NOT</b></span> with event dispatch's dispatching logic</li>
               <li>ideally <span style="color:rgb(60, 179, 20)"><b>YES</b></span> in the PRIOR event's <b><i>finish</i></b> method <b><i>BEFORE dispatching the relevant event</i></b></li>
+              <ul class="shallow">
+                <li>In a <b><i>producer-consumer</i></b> design context where consumers require multiple shared resources, multiple producers notify the same composite cv, consumer waits on compound predicates before unblocking</li>
+                <li>For this best practice, we move that implementation <b>completely to the producers</b>: all producers (events that are <b><i>finishing</i></b>) check the compound predicates before the consumer even <b><i>exists</i></b></li>
+              </ul>
             </ul>
           </ul>
         </li>
