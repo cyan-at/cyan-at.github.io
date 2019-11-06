@@ -22,5 +22,8 @@ $(document).ready(function(){
   $('#links').flowtype({
      minimum : 50,
      maximum : 500
+     // fontRatio : 30
   });
+
+
 });

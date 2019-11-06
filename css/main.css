@@ -144,7 +144,7 @@ pre {
 }
 
 
-@media (max-width: @screen-xs) {
+/*@media (max-width: @screen-xs) {
     body{font-size: 10px;}
 }
 
@@ -153,4 +153,4 @@ pre {
 }
 h5{
     font-size: 0.88em;
-}
+}*/
