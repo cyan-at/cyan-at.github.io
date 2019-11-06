@@ -7,12 +7,16 @@
 
   <script src="./js/jquery.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
-  <script src="./js/main.js"></script>
 
   <!-- 2019-08-30 adding code syntax highlight support -->
   <link rel="stylesheet" href="./css/default.css">
   <script src="./js/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+
+  <!-- 2019-11-05 handle resizing -->
+  <script src="./js/flowtype.js"></script>
+
+  <script src="./js/main.js"></script>
 
   <!-- change color scheme via this -->
   <!-- <link rel="stylesheet" href="./css/code_styles/solarized-light.css"> -->
@@ -27,7 +31,7 @@
 <div class="row" id="topBar">
 <div class="col-lg-12">
 <h3 ><a href="mailto:cyanatg@gmail.com">cyan@</a> - Portfolio Page</h3>
-<h5>
+<h5 id="links">
   math & things |
   <a target="_blank" href="./media/resumes/2019_09.pdf">CV 2019-09</a> |
   <a target="_blank" href="./media/undergrad_umich_transcript.pdf">Transcript</a> |

@@ -19,4 +19,8 @@ $(document).ready(function(){
     $("#encoder_gps_blending_example").toggle();
   });
 
+  $('#links').flowtype({
+     minimum : 50,
+     maximum : 500
+  });
 });
