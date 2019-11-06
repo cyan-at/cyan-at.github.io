@@ -20,9 +20,11 @@ $(document).ready(function(){
   });
 
   $('#links').flowtype({
-     minimum : 50,
-     maximum : 500
+     // minimum : 50,
+     // maximum : 500
      // fontRatio : 30
+     minFont : 8,
+     maxFont : 15
   });
 
 
