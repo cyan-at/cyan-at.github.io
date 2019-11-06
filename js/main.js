@@ -19,13 +19,13 @@ $(document).ready(function(){
     $("#encoder_gps_blending_example").toggle();
   });
 
-  $('#links').flowtype({
-     // minimum : 50,
-     // maximum : 500
-     // fontRatio : 30
-     minFont : 8,
-     maxFont : 15
-  });
+  // $('#links').flowtype({
+  //    // minimum : 50,
+  //    // maximum : 500
+  //    // fontRatio : 30
+  //    minFont : 8,
+  //    maxFont : 15
+  // });
 
 
 });
