@@ -38,7 +38,6 @@
 <h5 id="links">
   math & things |
   <a target="_blank" href="./media/resumes/2019_09.pdf">CV 2019-09</a> |
-  <a target="_blank" href="./media/undergrad_umich_transcript.pdf">Transcript</a> |
   <a target="_blank" href="https://drive.google.com/file/d/1e3gv-vyMO2Ez7ViAC5ffPQoPz8PYBwph/view?usp=sharing">Samples</a> |
   <a target="_blank" href="https://www.linkedin.com/pub/charlie-yan/1a/266/858">Lkdin</a>
 </h5>
@@ -49,7 +48,7 @@
 
 <div class="row well" id="index">
   <div class="col-md-4">
-    <h4>Math / Algorithms / Data structures</h4>
+    <h4>Math | Algs. & Data structs.</h4>
     <ul>
       <li><a href="#sidefinding">Sidefinding</a></li>
       <li><a href="#eventdispatch">Event Dispatch</a></li>
@@ -79,6 +78,8 @@
   <div class="col-md-4">
     <h4>Things</h4>
     <ul>
+      <li><a href="#prusa3dprinter">Prusa i3 mk3s 3D Printer</a></li>
+      <li><a href="#hondaelementcamper">Honda Element Camper</a></li>
       <li><a href="#chalk_bag">Chalk Bag</a></li>
       <li><a href="#key_wrangler_copy">Key Wrangler Copy</a></li>
       <li><a href="#plywood_photo_frame">Parameterized Photo Frame</a></li>
@@ -101,90 +102,113 @@
       <li><a href="#drywall_patent">Drywall Patent</a></li>
       <li><a href="#neuro_research">Neuro Research Paper</a></li>
       <li><a href="https://upverter.com/charlieyan/" target="_blank">My Upverter page</a></li>
+      <li><a id="transcript0" target="_blank" href="./media/undergrad_umich_transcript.pdf">UMich Undergraduate Transcript</a></li>
     </ul>
   </div>
 </div>
 
 <!-- ----------------------------------------------------- CONTENT -->
 
-<div id="blend_diff_sized_samples" class="project well">
-  <a id="blend_diff_sized_samples_toggle" href="#blend_diff_sized_samples_example">blend_diff_sized_samples (sDzHs1)</a>
+<div id="prusa3dprinter" class="project well">
+  <a class="example_toggler" id="drake_prusa3dprinter_toggle" href="#drake_prusa3dprinter_example">Prusa i3 mk3s 3D Printer</a>
   <ul>
-    <li>Motivation: to calibrate gain + offset between <a id="encoder_gps_blending" href="#encoder_gps_blending_example">encoder and gps signal</a></li>
+    <li>Motivation: support hardware prototyping for other projects (rover, drake)</li>
+    <li>Assembled from <a class="example_toggler" id="drake_prusa3dprinter_kit_toggle" href="#drake_prusa3dprinter_kit_example">kit</a></li>
+  </ul>
+  <img class="toggle_example" id="drake_prusa3dprinter_example" src="./media/drake/prusa_i3_mk3s/first_benchy.gif" class="img-fluid">
+  <img class="toggle_example" id="drake_prusa3dprinter_kit_example" src="./media/drake/prusa_i3_mk3s/assembly_kit.jpg" class="img-fluid">
+</div>
+
+<div id="hondaelementcamper" class="project well">
+  <a class="example_toggler" href="#honda_element_main_pic">Honda Element Camper</a>
+  <ul>
+    <li>Motivation: explore the SF Bay Area without needing to commute home</li>
+    <li><a href="#honda_element_curtains" class="example_toggler">Curtains</a> held with <a href="#honda_element_webbing" class="example_toggler">box stitched webbing</a></li>
+    <li>More to come!</li>
+  </ul>
+  <img class="toggle_example" id="honda_element_main_pic" src="./media/camper/hondaelement/outside_at_night.jpg" class="img-fluid">
+  <img class="toggle_example" id="honda_element_curtains" src="./media/camper/hondaelement/curtains_and_lights.jpg" class="img-fluid">
+  <img class="toggle_example" id="honda_element_webbing" src="./media/camper/hondaelement/curtains_box_stitch.jpg" class="img-fluid">
+</div>
+
+<div id="blend_diff_sized_samples" class="project well">
+  <a class="example_toggler" id="blend_diff_sized_samples_toggle" href="#blend_diff_sized_samples_example">blend_diff_sized_samples (sDzHs1)</a>
+  <ul>
+    <li>Motivation: to calibrate gain + offset between <a class="example_toggler" id="encoder_gps_blending" href="#encoder_gps_blending_example">encoder and gps signal</a></li>
     <li>For 2 <b>timestamped</b> datasets with <b><i>different sample rates</i></b>, linear interpolate to down/upsample to get 2 same sized datasets</li>
   </ul>
-  <img id="encoder_gps_blending_example" src="./media/d_00_encoder_vs_gps_blending.png" class="img-fluid">
-<div id="blend_diff_sized_samples_example">
-<pre>
-<code class="python">@staticmethod
-def interpolate(t_i, datum, other_ts, other_datums):
-  # assumes datums are sorted, and filter is in-place
-  # logic same for up-sampling and down-sampling
-  lower_datum = datum
-  lower_idx = -1
-  lower = filter(lambda x: other_ts[x] < t_i,
-    list(xrange(len(other_datums))))
-  if len(lower) > 0:
-    lower_idx = lower[-1]
-    lower_datum = other_datums[lower_idx]
+  <img class="toggle_example" id="encoder_gps_blending_example" src="./media/d_00_encoder_vs_gps_blending.png" class="img-fluid">
+  <div class="toggle_example" id="blend_diff_sized_samples_example">
+  <pre>
+  <code class="python">@staticmethod
+  def interpolate(t_i, datum, other_ts, other_datums):
+    # assumes datums are sorted, and filter is in-place
+    # logic same for up-sampling and down-sampling
+    lower_datum = datum
+    lower_idx = -1
+    lower = filter(lambda x: other_ts[x] < t_i,
+      list(xrange(len(other_datums))))
+    if len(lower) > 0:
+      lower_idx = lower[-1]
+      lower_datum = other_datums[lower_idx]
 
-  upper_datum = datum
-  upper_idx = -1
-  upper = filter(lambda x: other_ts[x] > t_i,
-    list(xrange(len(other_datums))))
-  if len(upper) > 0:
-    upper_idx = upper[0]
-    upper_datum = other_datums[upper_idx]
+    upper_datum = datum
+    upper_idx = -1
+    upper = filter(lambda x: other_ts[x] > t_i,
+      list(xrange(len(other_datums))))
+    if len(upper) > 0:
+      upper_idx = upper[0]
+      upper_datum = other_datums[upper_idx]
 
-  t_l = other_ts[lower_idx] if lower_idx >= 0 else t_i
-  t_u = other_ts[upper_idx] if upper_idx >= 0 else t_i
+    t_l = other_ts[lower_idx] if lower_idx >= 0 else t_i
+    t_u = other_ts[upper_idx] if upper_idx >= 0 else t_i
 
-  # implicit linear transition model
-  ratio = (t_i - t_l) / (t_u - t_l)
-  return lower_datum + ratio * (upper_datum - lower_datum)
+    # implicit linear transition model
+    ratio = (t_i - t_l) / (t_u - t_l)
+    return lower_datum + ratio * (upper_datum - lower_datum)
 
-@staticmethod
-def blend_diff_sized_samples(
-  xs_times, xs_list, ys_times, ys_list,
-  direction = "down", custom_size = None):
-  assert(len(xs_times) == len(xs_list))
-  assert(len(ys_times) == len(ys_list))
-  assert(direction in ["up", "down", "custom"])
+  @staticmethod
+  def blend_diff_sized_samples(
+    xs_times, xs_list, ys_times, ys_list,
+    direction = "down", custom_size = None):
+    assert(len(xs_times) == len(xs_list))
+    assert(len(ys_times) == len(ys_list))
+    assert(direction in ["up", "down", "custom"])
 
-  if len(xs_list) == len(ys_list):
-    return xs_times, xs_list, ys_times, ys_list
+    if len(xs_list) == len(ys_list):
+      return xs_times, xs_list, ys_times, ys_list
 
-  min_times = xs_times if len(xs_list) < len(xs_list) else ys_times
-  min_list = xs_list if len(xs_list) < len(ys_list) else ys_list
-  max_times = ys_times if len(xs_list) < len(xs_list) else xs_times
-  max_list = ys_list if len(xs_list) < len(ys_list) else xs_list
-  min_is_x = len(xs_list) < len(ys_list)
+    min_times = xs_times if len(xs_list) < len(xs_list) else ys_times
+    min_list = xs_list if len(xs_list) < len(ys_list) else ys_list
+    max_times = ys_times if len(xs_list) < len(xs_list) else xs_times
+    max_list = ys_list if len(xs_list) < len(ys_list) else xs_list
+    min_is_x = len(xs_list) < len(ys_list)
 
-  if direction == "down":
-    # downsampled_list is from max_times / max_list
-    downsampled_list = map(lambda i: Util.interpolate(
-      min_times[i], min_list[i], max_times, max_list),
-      list(xrange(len(min_list))))
-    if min_is_x:
-      return min_times, min_list, min_times, downsampled_list
-    else:
-      return min_times, downsampled_list, min_times, min_list
-  else:
-      # upsampled list is from min_times, min_list
-      upsampled_list = map(lambda i: Util.interpolate(
-        max_times[i], max_list[i], min_times, min_list),
-        list(xrange(len(max_list))))
+    if direction == "down":
+      # downsampled_list is from max_times / max_list
+      downsampled_list = map(lambda i: Util.interpolate(
+        min_times[i], min_list[i], max_times, max_list),
+        list(xrange(len(min_list))))
       if min_is_x:
-        return max_times, upsampled_list, max_times, max_list
+        return min_times, min_list, min_times, downsampled_list
       else:
-        return max_times, max_list, max_times, upsampled_list
-</code>
-</pre>
-</div>
+        return min_times, downsampled_list, min_times, min_list
+    else:
+        # upsampled list is from min_times, min_list
+        upsampled_list = map(lambda i: Util.interpolate(
+          max_times[i], max_list[i], min_times, min_list),
+          list(xrange(len(max_list))))
+        if min_is_x:
+          return max_times, upsampled_list, max_times, max_list
+        else:
+          return max_times, max_list, max_times, upsampled_list
+  </code>
+  </pre>
+  </div>
 </div>
 
 <div id="eventdispatch" class="project well">
-  <a href="#event_dispatch_example" id="event_dispatch_class_toggle">Event Dispatch</a>: <a href="#event_example" id="event_class_toggle">event</a>-driven, decentralized orchtectration (JQ3uqm)
+  <a class="example_toggler" href="#event_dispatch_example" id="event_dispatch_class_toggle">Event Dispatch</a>: <a href="#event_example" id="event_class_toggle" class="example_toggler">event</a>-driven, decentralized orchtectration (JQ3uqm)
 
   <hr>Inspiration / Motivations
   <ul class="shallow">
@@ -329,7 +353,7 @@ def blend_diff_sized_samples(
     <li>Because there is no central orchestrator, 'global' progress requires extra structure</li>
   </ul>
 
-  <div id="event_dispatch_example">
+  <div class="toggle_example" id="event_dispatch_example">
   <pre>
   <code class="python">class EventDispatch(object):
     def __init__(self,
@@ -390,7 +414,7 @@ def blend_diff_sized_samples(
   </pre>
   </div>
 
-  <div id="event_example">
+  <div class="toggle_example" id="event_example">
   <pre>
   <code class="python">class Event(object):
     def __init__(self, event_id, *args, **kwargs):
@@ -481,8 +505,8 @@ def blend_diff_sized_samples(
 
     <li>some outcomes:</li>
     <ul class="shallow">
-      <li><a href="#" class="sidefinding_0_desc">Counting, finding 'facing' sides (BZl03E supplemental <b><i>intermediate-value-theorem</i></b> based algorithm involved), scene understanding</a>
-        <img id="sidefinding_0" src="./media/sidefinding/scene_understanding_0.gif" class="img-fluid">
+      <li><a href="#sidefinding_0" class="example_toggler">Counting, finding 'facing' sides (BZl03E supplemental <b><i>intermediate-value-theorem</i></b> based algorithm involved), scene understanding</a>
+        <img class="toggle_example" id="sidefinding_0" src="./media/sidefinding/scene_understanding_0.gif" class="img-fluid">
       </li>
       <!--
       <li><a href="#" class="sidefinding_1_desc">A mapping stopping condition (how do I know I'm done mapping an indoor space?)</a>

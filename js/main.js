@@ -1,24 +1,4 @@
 $(document).ready(function(){
-  $(".sidefinding_0_desc").click(function(){
-    $("#sidefinding_0").toggle();
-  });
-
-  $("#event_dispatch_class_toggle").click(function(){
-    $("#event_dispatch_example").toggle();
-  });
-
-  $("#event_class_toggle").click(function(){
-    $("#event_example").toggle();
-  });
-
-  $("#blend_diff_sized_samples_toggle").click(function(){
-    $("#blend_diff_sized_samples_example").toggle();
-  });
-
-  $("#encoder_gps_blending").click(function(){
-    $("#encoder_gps_blending_example").toggle();
-  });
-
   // $('#links').flowtype({
   //    // minimum : 50,
   //    // maximum : 500
@@ -27,5 +7,13 @@ $(document).ready(function(){
   //    maxFont : 15
   // });
 
-
+  $('.example_toggler').click(function(event) {
+    var href = $(event.target).attr('href');
+    $(href).toggle();
+    // if ($(href).is(":visible")) {
+    //   $(href).hide();
+    // } else {
+    //   $(href).show();
+    // }
+  })
 });

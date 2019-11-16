@@ -87,24 +87,10 @@ hr {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#event_dispatch_example {
-  display:none;
-}
-
-#event_example {
-  display:none;
-}
-
-#blend_diff_sized_samples_example {
-  display:none;
-}
-
-#encoder_gps_blending_example {
+.toggle_example {
+  display: none;
   max-width: 100%;
-  display:none;
-/*  position:absolute;
-  bottom:0;
-  right:0;*/
+  width: 100%;
 }
 
 pre {
@@ -153,4 +139,7 @@ pre {
 }
 h5{
     font-size: 0.88em;
+}
+h4{
+    font-size: 1.2em;
 }
