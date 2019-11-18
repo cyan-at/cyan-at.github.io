@@ -15,5 +15,14 @@ $(document).ready(function(){
     // } else {
     //   $(href).show();
     // }
-  })
+  });
 });
+
+// #cool handle anchor links that reference hidden divs
+window.onload = function() {
+  var hash = window.location.hash;
+  if(hash != "") {
+    var id = hash.substr(1); // get rid of #
+    document.getElementById(id).style.display = 'block';
+  }
+};
