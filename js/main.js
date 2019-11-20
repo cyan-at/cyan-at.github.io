@@ -9,12 +9,21 @@ $(document).ready(function(){
 
   $('.example_toggler').click(function(event) {
     var href = $(event.target).attr('href');
+
+    // $('.toggle_example').hide();
+    // $(href).show();
+
     $(href).toggle();
     // if ($(href).is(":visible")) {
     //   $(href).hide();
     // } else {
     //   $(href).show();
     // }
+  });
+
+
+  $("#reset").click(function(event) {
+    $('.toggle_example').hide();
   });
 });
 
