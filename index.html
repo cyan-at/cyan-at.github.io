@@ -20,6 +20,9 @@
   <!-- 2019-11-05 handle resizing -->
   <script src="./js/flowtype.js"></script>
 
+  <!-- 2019-11-20 lazy loading -->
+  <script src="./js/lazyload.min.js"></script>
+
   <script src="./js/main.js"></script>
 
   <!-- change color scheme via this -->
@@ -115,8 +118,8 @@
     <li>Motivation: support hardware prototyping for other projects (rover, drake)</li>
     <li>Assembled from <a class="example_toggler" id="drake_prusa3dprinter_kit_toggle" href="#drake_prusa3dprinter_kit_example">kit</a></li>
   </ul>
-  <img class="toggle_example" id="drake_prusa3dprinter_example" src="./media/drake/prusa_i3_mk3s/first_benchy.gif" class="img-fluid">
-  <img class="toggle_example" id="drake_prusa3dprinter_kit_example" src="./media/drake/prusa_i3_mk3s/assembly_kit.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="drake_prusa3dprinter_example" data-src="./media/drake/prusa_i3_mk3s/first_benchy.gif" class="img-fluid">
+  <img class="toggle_example lazyload" id="drake_prusa3dprinter_kit_example" data-src="./media/drake/prusa_i3_mk3s/assembly_kit.jpg" class="img-fluid">
 </div>
 
 <div id="hondaelementcamper" class="project well">
@@ -126,9 +129,9 @@
     <li><a href="#honda_element_curtains" class="example_toggler">Curtains</a> held with <a href="#honda_element_webbing" class="example_toggler">box stitched webbing</a></li>
     <li>More to come!</li>
   </ul>
-  <img class="toggle_example" id="honda_element_main_pic" src="./media/camper/hondaelement/outside_at_night.jpg" class="img-fluid">
-  <img class="toggle_example" id="honda_element_curtains" src="./media/camper/hondaelement/curtains_and_lights.jpg" class="img-fluid">
-  <img class="toggle_example" id="honda_element_webbing" src="./media/camper/hondaelement/curtains_box_stitch.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="honda_element_main_pic" data-src="./media/camper/hondaelement/outside_at_night.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="honda_element_curtains" data-src="./media/camper/hondaelement/curtains_and_lights.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="honda_element_webbing" data-src="./media/camper/hondaelement/curtains_box_stitch.jpg" class="img-fluid">
 </div>
 
 <div id="blend_diff_sized_samples" class="project well">
@@ -137,7 +140,7 @@
     <li>Motivation: to calibrate gain + offset between <a class="example_toggler" id="encoder_gps_blending" href="#encoder_gps_blending_example">encoder and gps signal</a></li>
     <li>For 2 <b>timestamped</b> datasets with <b><i>different sample rates</i></b>, linear interpolate to down/upsample to get 2 same sized datasets</li>
   </ul>
-  <img class="toggle_example" id="encoder_gps_blending_example" src="./media/d_00_encoder_vs_gps_blending.png" class="img-fluid">
+  <img class="toggle_example lazyload" id="encoder_gps_blending_example" data-src="./media/d_00_encoder_vs_gps_blending.png" class="img-fluid">
   <div class="toggle_example" id="blend_diff_sized_samples_example">
   <pre>
   <code class="python">@staticmethod
@@ -506,22 +509,22 @@
     <li>some outcomes:</li>
     <ul class="shallow">
       <li><a href="#sidefinding_0" class="example_toggler">Counting, finding 'facing' sides (BZl03E supplemental <b><i>intermediate-value-theorem</i></b> based algorithm involved), scene understanding</a>
-        <img class="toggle_example" id="sidefinding_0" src="./media/sidefinding/scene_understanding_0.gif" class="img-fluid">
+        <img class="toggle_example lazyload" id="sidefinding_0" data-src="./media/sidefinding/scene_understanding_0.gif" class="img-fluid">
       </li>
       <!--
       <li><a href="#" class="sidefinding_1_desc">A mapping stopping condition (how do I know I'm done mapping an indoor space?)</a>
-        <img id="sidefinding_1" src="./media/sidefinding/scene_understanding_1.gif" class="img-fluid">
+        <img id="sidefinding_1" data-src="./media/sidefinding/scene_understanding_1.gif" class="img-fluid">
       </li>
       -->
       <!--       
       <li><a href="#" class="sidefinding_2_desc">Toolpath generation via inward / outward tesselation</a>
-        <img id="sidefinding_2" src="./media/sidefinding/scene_understanding_2.gif" class="img-fluid">
+        <img id="sidefinding_2" data-src="./media/sidefinding/scene_understanding_2.gif" class="img-fluid">
       </li>
       <li><a href="#" class="sidefinding_3_desc">Openings sampling heuristic for RRT</a>
-        <img id="sidefinding_3" src="./media/sidefinding/scene_understanding_3.gif" class="img-fluid">
+        <img id="sidefinding_3" data-src="./media/sidefinding/scene_understanding_3.gif" class="img-fluid">
       </li>
       <li><a href="#" class="sidefinding_4_desc">Thickness calculation</a>
-        <img id="sidefinding_4" src="./media/sidefinding/scene_understanding_4.gif" class="img-fluid">
+        <img id="sidefinding_4" data-src="./media/sidefinding/scene_understanding_4.gif" class="img-fluid">
       </li>
       -->
     </ul>
@@ -559,11 +562,11 @@
       Shoutout to <a href="http://canvas.build" target="_blank">Canvas Construction</a>, <a href="http://otherlab.com" target="_blank">Otherlab</a> for letting me use their scrap metal and tools!
     </li>
   </ul>
-  <img class="toggle_example" id="zeus_example_main" src="./media/rover/rover_2/zeus_01_firstdrive_0_pic0.jpg" class="img-fluid">
-  <img class="toggle_example" id="zeus_example_steering_shakeout" src="./media/rover/rover_2/zeus_steering_shakeout.gif" class="img-fluid">
-  <img class="toggle_example" id="zeus_example_firstdrive_pic0" src="./media/rover/rover_2/zeus_01_firstdrive_0_pic1.jpg" class="img-fluid">
-  <img class="toggle_example" id="zeus_example_firstdrive_front" src="./media/rover/rover_2/zeus_firstdrive_front.gif" class="img-fluid">
-  <img class="toggle_example" id="zeus_example_firstdrive_pov" src="./media/rover/rover_2/zeus_firstdrive_pov.gif" class="img-fluid">
+  <img class="toggle_example lazyload" id="zeus_example_main" data-src="./media/rover/rover_2/zeus_01_firstdrive_0_pic0.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="zeus_example_steering_shakeout" data-src="./media/rover/rover_2/zeus_steering_shakeout.gif" class="img-fluid">
+  <img class="toggle_example lazyload" id="zeus_example_firstdrive_pic0" data-src="./media/rover/rover_2/zeus_01_firstdrive_0_pic1.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="zeus_example_firstdrive_front" data-src="./media/rover/rover_2/zeus_firstdrive_front.gif" class="img-fluid">
+  <img class="toggle_example lazyload" id="zeus_example_firstdrive_pov" data-src="./media/rover/rover_2/zeus_firstdrive_pov.gif" class="img-fluid">
 </div>
 
 <div id="color_png.py" class="project well">
@@ -589,11 +592,11 @@
     <li>Step-by-step pictures / notes <a href="./media/chalk_bag/steps.zip">here</a></li>
   </ul>
 
-  <img class="toggle_example" id="chalk_bag_main" src="./media/chalk_bag/chalk_bag_1.jpg" class="img-fluid">
-  <img class="toggle_example" id="chalk_bag_box_stitch" src="./media/chalk_bag/box_stitch.jpg" class="img-fluid">
-  <img class="toggle_example" id="chalk_bag_webbing_stitch" src="./media/chalk_bag/webbing_box_stitch.jpg" class="img-fluid">
-  <img class="toggle_example" id="chalk_bag_grommet" src="./media/chalk_bag/grommet.jpg" class="img-fluid">
-  <img class="toggle_example" id="chalk_bag_tabs" src="./media/chalk_bag/tabs_3d_structure.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="chalk_bag_main" data-src="./media/chalk_bag/chalk_bag_1.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="chalk_bag_box_stitch" data-src="./media/chalk_bag/box_stitch.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="chalk_bag_webbing_stitch" data-src="./media/chalk_bag/webbing_box_stitch.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="chalk_bag_grommet" data-src="./media/chalk_bag/grommet.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="chalk_bag_tabs" data-src="./media/chalk_bag/tabs_3d_structure.jpg" class="img-fluid">
 </div>
 
 <div id="key_wrangler_copy" class="project well">
@@ -615,10 +618,10 @@
       <a href="#key_wrangler_miles" class="example_toggler">Miles</a>
   </ul>
 
-  <img class="toggle_example" id="key_wrangler_cad_design" src="./media/key_wrangler_copy/cad.png" class="img-fluid">
-  <img class="toggle_example" id="key_wrangler_woodaluminum" src="./media/key_wrangler_copy/wood_and_aluminum.jpg" class="img-fluid">
-  <img class="toggle_example" id="key_wrangler_brother" src="./media/key_wrangler_copy/version_for_brother.jpg" class="img-fluid">
-  <img class="toggle_example" id="key_wrangler_miles" src="./media/key_wrangler_copy/miles_bridgeport.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="key_wrangler_cad_design" data-src="./media/key_wrangler_copy/cad.png" class="img-fluid">
+  <img class="toggle_example lazyload" id="key_wrangler_woodaluminum" data-src="./media/key_wrangler_copy/wood_and_aluminum.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="key_wrangler_brother" data-src="./media/key_wrangler_copy/version_for_brother.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="key_wrangler_miles" data-src="./media/key_wrangler_copy/miles_bridgeport.jpg" class="img-fluid">
 </div>
 
 <div id="plywood_photo_frame" class="project well">
@@ -640,12 +643,12 @@
       <a href="#pppf_broken" class="example_toggler">Broken</a> |
       <a href="https://photos.app.goo.gl/7h8SJ0eAC1HD1rlK2" target="_blank">Album</a>
   </ul>
-  <img class="toggle_example" id="pppf_front" src="./media/parameterized_plywood_photo_frame/front.png" class="img-fluid">
-  <img class="toggle_example" id="pppf_back" src="./media/parameterized_plywood_photo_frame/back.png" class="img-fluid">
-  <img class="toggle_example" id="pppf_mount" src="./media/parameterized_plywood_photo_frame/mount.png" class="img-fluid">
-  <img class="toggle_example" id="pppf_50_30_example" src="./media/parameterized_plywood_photo_frame/50_30_example.png" class="img-fluid">
-  <img class="toggle_example" id="pppf_change_outer_fillet" src="./media/parameterized_plywood_photo_frame/changing_the_outer_fillet.png" class="img-fluid">
-  <img class="toggle_example" id="pppf_broken" src="./media/parameterized_plywood_photo_frame/30_border_offset_broken.png" class="img-fluid">
+  <img class="toggle_example lazyload" id="pppf_front" data-src="./media/parameterized_plywood_photo_frame/front.png" class="img-fluid">
+  <img class="toggle_example lazyload" id="pppf_back" data-src="./media/parameterized_plywood_photo_frame/back.png" class="img-fluid">
+  <img class="toggle_example lazyload" id="pppf_mount" data-src="./media/parameterized_plywood_photo_frame/mount.png" class="img-fluid">
+  <img class="toggle_example lazyload" id="pppf_50_30_example" data-src="./media/parameterized_plywood_photo_frame/50_30_example.png" class="img-fluid">
+  <img class="toggle_example lazyload" id="pppf_change_outer_fillet" data-src="./media/parameterized_plywood_photo_frame/changing_the_outer_fillet.png" class="img-fluid">
+  <img class="toggle_example lazyload" id="pppf_broken" data-src="./media/parameterized_plywood_photo_frame/30_border_offset_broken.png" class="img-fluid">
 </div>
 
 <div id="unicycle" class="project well">
@@ -661,7 +664,7 @@
       <a href="https://drive.google.com/open?id=1Z1d6a1MHbWwbo3VTVvgfroBZD2GSh8hP" target="_blank">Video</a>
     </li>
   </ul>
-  <img class="toggle_example" id="rover_0_main" src="./media/rover/rover_0_unicycle/unicycle.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="rover_0_main" data-src="./media/rover/rover_0_unicycle/unicycle.jpg" class="img-fluid">
 </div>
 
 <div id="constellations" class="project well">
@@ -699,8 +702,8 @@
     </li>
   </ul>
 
-  <img class="toggle_example" id="rlmark_front" src="./media/rlmark/rlmark_front.jpg" class="img-fluid">
-  <img class="toggle_example" id="rlmark_back" src="./media/rlmark/rlmark_back.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="rlmark_front" data-src="./media/rlmark/rlmark_front.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="rlmark_back" data-src="./media/rlmark/rlmark_back.jpg" class="img-fluid">
 </div>
 
 <div id="rover_1_x" class="project well">
@@ -719,7 +722,7 @@
       <a href="https://github.com/charlieyan/rover" target="_blank">Firmware Github</a>
     </li>
   </ul>
-  <img class="toggle_example" id="rover_1_x_example_main" src="./media/rover/rover_1_x/rover_1.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="rover_1_x_example_main" data-src="./media/rover/rover_1_x/rover_1.jpg" class="img-fluid">
 </div>
 
 <div id="plywood_sutro_tower_alenawu" class="project well">
@@ -737,7 +740,7 @@
     <li>Will link to SVG / laser cutter files later, contact for more design files</li>
   </ul>
 
-  <img class="toggle_example" id="rover_1_x_example_main" src="./media/rover/rover_1_x/rover_1.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="rover_1_x_example_main" data-src="./media/rover/rover_1_x/rover_1.jpg" class="img-fluid">
 </div>
 
 <div id="tom_going_away" class="project well">

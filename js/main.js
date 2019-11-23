@@ -7,6 +7,8 @@ $(document).ready(function(){
   //    maxFont : 15
   // });
 
+  lazyload();
+
   $('.example_toggler').click(function(event) {
     var href = $(event.target).attr('href');
 
@@ -29,6 +31,7 @@ $(document).ready(function(){
 
 // #cool handle anchor links that reference hidden divs
 window.onload = function() {
+
   var hash = window.location.hash;
   if(hash != "") {
     var id = hash.substr(1); // get rid of #
