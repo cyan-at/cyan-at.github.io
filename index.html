@@ -214,8 +214,8 @@
 <div id="eventdispatch" class="project well">
   <a class="example_toggler" href="#event_dispatch_example" id="event_dispatch_class_toggle">Event Dispatch</a>: <a href="#event_example" id="event_class_toggle" class="example_toggler">event</a>-driven, decentralized orchestration (JQ3uqm)
 
-  <hr>Inspiration / Motivations
-  <ul class="shallow">
+  <hr><a class="example_toggler" id="ed_motivations_toggle" href="#ed_motivations">Inspiration / Motivations</a>
+  <ul class="shallow toggle_example" id="ed_motivations">
     <li>Safety
       <ul class="shallow">
         <li>In a concurrent system, if one section of orchestration <b>fatally crashes</b>, how do we guarantee that <b>no concurrent or subsequent sections proceed</b> until an all-clear?</li>
@@ -263,11 +263,10 @@
     <li>The famous quote <i>...It is an infinite sphere, the center of which is everywhere, the circumference nowhere.</i></li>
 
     <li><a href="http://web.eecs.umich.edu/~brehob/" target="_blank">Professor Mark Brehob's</a> quote: "bits are bits!"</li>
-
   </ul>
 
-  <hr>Details
-  <ul class="shallow">
+  <hr><a class="example_toggler" id="ed_details_toggle" href="#ed_details">Details</a>
+  <ul class="shallow toggle_example" id="ed_details">
     <li>Event dispatch systems are organized into <b>3 elements</b>
       <ul class="shallow">
         <li>
@@ -335,18 +334,18 @@
     <li>An augmented <a href="https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem" target="_blank">producer-consumer system</a></span>
       <ul class="shallow">
         <li>Event-dispatch systems <b><i>can be considered</i></b> a <b><i>type of producer-consumer</i></b> system</li>
-        <li>The main innovation here is that the data produced and consumed <b><i>define 2 extra pieces of information</i></b></li>
+        <li>Innovation A: the data produced and consumed (events) <b><i>define 2 extra pieces of information</i></b></li>
         <ol class="shallow">
           <li><b><i>How</i></b> to consume the data</li>
           <li>What the <b><i>consumer PRODUCES</i></b> next</li>
         </ul>
+        <li>Innovation B: actors (processes) in the system are <b><i>dynamically induced</i></b> to produce and consume events</li>
       </ul>
     </li>
-
   </ul>
 
-  <hr>Disadvantages
-  <ul class="shallow">
+  <hr><a class="example_toggler" id="ed_disadvantages_toggle" href="#ed_disadvantages">Disadvantages</a>
+  <ul class="shallow toggle_example" id="ed_disadvantages">
     <li>Events are supposed to be <b>as decentralized as possible</b>, so each event constructor needs to reconstitute data in duplicated memory usage or computation</li>
     <li>Working with an <b>fundamentally concurrent / parallel system</b> you need to be <b><i>really, REALLY</i></b> careful with
       <ul class="shallow">
