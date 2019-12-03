@@ -9,13 +9,35 @@ $(document).ready(function(){
 
   lazyload();
 
+  latest_example_toggler_href_to_latest_id = {};
+
   $('.example_toggler').click(function(event) {
     var href = $(event.target).attr('href');
+
+    /*
+    // if ID exists and it is the last source ID
+    // toggle, otherwise update last source ID
+    var id_attr = $(event.target).attr('id');
+    if (typeof id_attr !== "undefined" && id_attr !== false) {
+      if (href in latest_example_toggler_href_to_latest_id) {
+        if (latest_example_toggler_href_to_latest_id[href] == id_attr) {
+          $(href).toggle();
+        }
+      } else {
+        $(href).toggle();
+      }
+      latest_example_toggler_href_to_latest_id[href] = id_attr;
+    } else {
+      $(href).toggle();
+      // latest_example_toggler_href_to_latest_id.clear();
+    }
+    */
+
+    $(href).toggle();
 
     // $('.toggle_example').hide();
     // $(href).show();
 
-    $(href).toggle();
     // if ($(href).is(":visible")) {
     //   $(href).hide();
     // } else {
@@ -38,3 +60,17 @@ window.onload = function() {
     document.getElementById(id).style.display = 'block';
   }
 };
+
+/*
+https://stackoverflow.com/questions/3698200/window-onload-vs-document-ready
+
+The ready event occurs after the HTML document has been loaded
+while the onload event occurs later, when all content (e.g. images) also has been loaded.
+
+The onload event is a standard event in the DOM,
+while the ready event is specific to jQuery.
+The purpose of the ready event is that it should occur as
+early as possible after the document has loaded,
+so that code that adds functionality to the elements
+in the page doesn't have to wait for all content to load.
+*/
