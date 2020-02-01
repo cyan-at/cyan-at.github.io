@@ -53,7 +53,7 @@ $(document).ready(function(){
   });
 
   // id to Howl objects to play
-  $('.play_sound').click(function(event) {
+  $('.lazy_play_sound').click(function(event) {
     var howl_id = $(event.target).attr('howl_id');
     // "lazy"
     if !(howl_id in sounds) {
