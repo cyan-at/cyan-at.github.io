@@ -1,3 +1,5 @@
+var sounds = {};
+
 $(document).ready(function(){
   // $('#links').flowtype({
   //    // minimum : 50,
@@ -48,6 +50,18 @@ $(document).ready(function(){
 
   $("#reset").click(function(event) {
     $('.toggle_example').hide();
+  });
+
+  // id to Howl objects to play
+  $('.play_sound').click(function(event) {
+    var howl_id = $(event.target).attr('howl_id');
+    // "lazy"
+    if !(howl_id in sounds) {
+      console.log("lazy loading sound!");
+      sounds[howl_id] = 1;
+    } else {
+      console.log("found sound");
+    }
   });
 });
 
