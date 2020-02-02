@@ -55,13 +55,28 @@ $(document).ready(function(){
   // id to Howl objects to play
   $('.lazy_play_sound').click(function(event) {
     var howl_id = $(event.target).attr('howl_id');
+    var mp3_path = $(event.target).attr('mp3_path');
     // "lazy"
-    // if !(howl_id in sounds) {
-    //   console.log("lazy loading sound!");
-    //   sounds[howl_id] = 1;
-    // } else {
-    //   console.log("found sound");
-    // }
+    if (sounds.hasOwnProperty(howl_id)) {
+      console.log("found sound");
+    } else {
+      console.log("lazy loading sound " + howl_id);
+      sounds[howl_id] = new Howl({
+        src: [mp3_path],
+        // onplayerror: function() {
+        //   sound.once('unlock', function() {
+        //     sound.play();
+        //   });
+        // }
+      });
+    }
+
+    var this_state = $(this).text();
+    if (this_state == "*Play") {
+      $(this).text("*Stop");
+    } else {
+      $(this).text("*Play");
+    }
   });
 });
 
