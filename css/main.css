@@ -43,7 +43,11 @@ body{
 }
 
 .shallow {
-  padding-left:10px;
+  /*padding-left:10px;*/
+}
+
+ul {
+  padding-left:15px;
 }
 
 .static {
