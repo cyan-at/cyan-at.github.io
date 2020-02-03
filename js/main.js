@@ -77,7 +77,7 @@ $(document).ready(function(){
           console.log('finished playing song');
 
           // put into stopped state
-          $(blackboard["active_howl_id"]).text("*Play");
+          $("#" + blackboard["active_howl_id"]).text("*Play");
 
           // hygiene
           blackboard["active_howl_id"] = "";
