@@ -1,6 +1,6 @@
 var sounds = {};
 var blackboard = {
-  "active_howl_id" : ""
+  "active_howl_id" : "",
 };
 
 $(document).ready(function(){
@@ -57,7 +57,7 @@ $(document).ready(function(){
 
   // id to Howl objects to play
   $('.lazy_play_sound').click(function(event) {
-    var howl_id = $(event.target).attr('howl_id');
+    var howl_id = $(event.target).attr('id');
     var mp3_path = $(event.target).attr('mp3_path');
     // "lazy"
     if (sounds.hasOwnProperty(howl_id)) {
@@ -77,7 +77,7 @@ $(document).ready(function(){
           console.log('finished playing song');
 
           // put into stopped state
-          $(this).text("*Play");
+          $(blackboard["active_howl_id"]).text("*Play");
 
           // hygiene
           blackboard["active_howl_id"] = "";
@@ -98,6 +98,7 @@ $(document).ready(function(){
     var this_state = $(this).text();
     if (this_state == "*Play") {
       sounds[howl_id].play();
+      blackboard["active_howl_id"] = howl_id;
 
       $(this).text("*Stop");
     } else {
