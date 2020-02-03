@@ -506,7 +506,9 @@
 
 <div id="sidefinding" class="project well">
   <a href="#sidefinding">Graph branch-and-bound <b><i>parameter-free order-invariant</i></b> algorithm to perceive 'sides' from lines</a>
-  <ul class="shallow">
+
+  <hr><a class="example_toggler" id="sidefinding_algorithm_toggle" href="#sidefinding_algorithm">Algorithm</a>
+  <ul class="shallow toggle_example" id="sidefinding_algorithm">
     <li>Formalize a 'side' as a traversal of a subset of lines</li>
     <li>3 subproblems</li>
     <ol class="shallow">
@@ -533,29 +535,13 @@
         <li>Exhaust all edges, filtering for remaining nodes to start on that are coincident with remaining edges, branching on emerging <b style="color:rgb(10, 200, 150)"><i>polarity</i></b> (<span style="color:rgb(255, 0, 0)"><b>Claim1</b></span>), until all edges have 2 traversals (<span style="color:rgb(0, 0, 255)"><b>Claim2</b></span>)</li>
       <ul>
     </ol>
+  </ul>
 
-    <li>some outcomes:</li>
-    <ul class="shallow">
-      <li><a href="#sidefinding_0" class="example_toggler">Counting, finding 'facing' sides (BZl03E supplemental <b><i>intermediate-value-theorem</i></b> based algorithm involved), scene understanding</a>
-        <img class="toggle_example lazyload" id="sidefinding_0" data-src="./media/sidefinding/scene_understanding_0.gif" class="img-fluid">
-      </li>
-      <!--
-      <li><a href="#" class="sidefinding_1_desc">A mapping stopping condition (how do I know I'm done mapping an indoor space?)</a>
-        <img id="sidefinding_1" data-src="./media/sidefinding/scene_understanding_1.gif" class="img-fluid">
-      </li>
-      -->
-      <!--       
-      <li><a href="#" class="sidefinding_2_desc">Toolpath generation via inward / outward tesselation</a>
-        <img id="sidefinding_2" data-src="./media/sidefinding/scene_understanding_2.gif" class="img-fluid">
-      </li>
-      <li><a href="#" class="sidefinding_3_desc">Openings sampling heuristic for RRT</a>
-        <img id="sidefinding_3" data-src="./media/sidefinding/scene_understanding_3.gif" class="img-fluid">
-      </li>
-      <li><a href="#" class="sidefinding_4_desc">Thickness calculation</a>
-        <img id="sidefinding_4" data-src="./media/sidefinding/scene_understanding_4.gif" class="img-fluid">
-      </li>
-      -->
-    </ul>
+  <hr><a class="example_toggler" id="sidefinding_outcomes_toggle" href="#sidefinding_outcomes">Outcomes</a>
+  <ul class="shallow toggle_example" id="sidefinding_outcomes">
+    <li><a href="#sidefinding_0" class="example_toggler">Counting, finding 'facing' sides (BZl03E supplemental <b><i>intermediate-value-theorem</i></b> based algorithm involved), scene understanding</a>
+      <img class="toggle_example lazyload" id="sidefinding_0" data-src="./media/sidefinding/scene_understanding_0.gif" class="img-fluid">
+    </li>
   </ul>
 </div>
 
