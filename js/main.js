@@ -1,4 +1,7 @@
 var sounds = {};
+var blackboard = {
+  "active_howl_id" : ""
+};
 
 $(document).ready(function(){
   // $('#links').flowtype({
@@ -71,12 +74,23 @@ $(document).ready(function(){
       });
     }
 
+    // hygiene
+    if (blackboard["active_howl_id"] != "") {
+      var active_howl_id = blackboard["active_howl_id"];
+      if (sounds.hasOwnProperty(active_howl_id)) {
+        sounds[active_howl_id].stop();
+      }
+      blackboard["active_howl_id"] = "";
+    }
+
     var this_state = $(this).text();
     if (this_state == "*Play") {
       sounds[howl_id].play();
+
       $(this).text("*Stop");
     } else {
       sounds[howl_id].pause();
+
       $(this).text("*Play");
     }
   });
