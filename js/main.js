@@ -73,8 +73,10 @@ $(document).ready(function(){
 
     var this_state = $(this).text();
     if (this_state == "*Play") {
+      sounds[howl_id].play();
       $(this).text("*Stop");
     } else {
+      sounds[howl_id].pause();
       $(this).text("*Play");
     }
   });
