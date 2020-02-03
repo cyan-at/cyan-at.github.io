@@ -71,6 +71,17 @@ $(document).ready(function(){
         //     sound.play();
         //   });
         // }
+
+
+        onend: function() {
+          console.log('finished playing song');
+
+          // put into stopped state
+          $(this).text("*Play");
+
+          // hygiene
+          blackboard["active_howl_id"] = "";
+        }
       });
     }
 
@@ -83,6 +94,7 @@ $(document).ready(function(){
       blackboard["active_howl_id"] = "";
     }
 
+    // state is opposite of text i.e. play == stopped state
     var this_state = $(this).text();
     if (this_state == "*Play") {
       sounds[howl_id].play();
