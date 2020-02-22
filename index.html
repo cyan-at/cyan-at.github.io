@@ -831,22 +831,28 @@
 </div>
 
 <div id="busman" class="project well">
-  <a href="http://li325-65.members.linode.com/" target="_blank">Busman</a>
+  <!-- <a href="http://li325-65.members.linode.com/" target="_blank">Busman</a> -->
+  <a href="#busman_android_app" class="example_toggler">Busman</a>
   <ul>
-    <li><a href="https://play.google.com/store/apps/details?id=xyz.busman.android" target="_blank">Busman Android App</a></li>
+    <li><a href="https://play.google.com/store/apps/details?id=xyz.busman.android" target="_blank">Busman on Google Play Store</a></li>
     <li>Wrote ruby and python scripts to crawl and process Google Transit Feed Schema (GTFS) data from <a href="http://transitfeeds.com/" target="_blank">TransitFeed</a> and load sqlite3 database of Rails app
     <li>Designed database models to optimize data for various use-cases</li>
     <li>AngularJS client-side app to consume JSON api</li>
     <li>Some very basic Google Maps api javascript coding</li>
     <li>Dealing with timezones in query, with geographical data in query</li>
-    <li>c2016 global stats: ingested <b>11,524</b> <i>stops</i>, <b>4,066,194</b> <i>arrival times</i>, <b><1s</b> avg query time</li>
+    <li>c2016 global stats: ingested <b>11,524</b> <i>stops</i>, <b>4,066,194</b> <i>arrival times</i>, <b><1s</b> avg query time from <b>5/200</b> GTFS agencies</li>
     <li>Final results:
-      <a href="./media/busman/final_ingestion.png" target="_blank">Final ingestion stats</a> | 
-      <a href="./media/busman/umich1.png" target="_blank">UMich bus stops</a> | 
-      <a href="./media/busman/seattle3.png" target="_blank">Seattle bus stops</a> |
+      <a href="#busman_ingestion_stats" class="example_toggler">Final ingestion stats</a> | 
+      <a href="#busman_umich" class="example_toggler">UMich bus stops</a> | 
+      <a href="#busman_seattle" class="example_toggler">Seattle bus stops</a> |
       <a href="https://drive.google.com/open?id=11eTiYn5sMPl6FKOjMs69iGjcsAFZCjSl" target="_blank">All media</a> |
       <a href="https://drive.google.com/open?id=1SpcBmErkmY3_Pdo6GzeOQpQ3HQ2LSR0T" target="_blank">Source</a>
     </li>
+
+    <img class="toggle_example lazyload" id="busman_android_app" data-src="./media/busman/android_app.gif" class="img-fluid">
+    <img class="toggle_example lazyload" id="busman_ingestion_stats" data-src="./media/busman/final_ingestion.png" class="img-fluid">
+    <img class="toggle_example lazyload" id="busman_umich" data-src="./media/busman/umich1.png" class="img-fluid">
+    <img class="toggle_example lazyload" id="busman_seattle" data-src="./media/busman/seattle3.png" class="img-fluid">
   </ul>
 </div>
 
