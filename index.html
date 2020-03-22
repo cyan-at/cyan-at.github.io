@@ -322,6 +322,7 @@
           <ul class="shallow">
             <li>A person walking in front of an system mid-motion</li>
             <li>A mobile base or arm or solenoid actuating</li>
+            <li>Continous time and space vs events which are discrete in those respects</li>
           </ul>
         </li>
         <li>
@@ -379,15 +380,38 @@
       </ul>
     </li>
 
-    <li>An augmented <a href="https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem" target="_blank">producer-consumer system</a></span>
+    <li>An augmented <a href="https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem" target="_blank">producer-consumer system</a>
       <ul class="shallow">
         <li>Event-dispatch systems <b><i>can be considered</i></b> a <b><i>type of producer-consumer</i></b> system</li>
         <li>Innovation A: the data produced and consumed (events) <b><i>define 2 extra pieces of information</i></b></li>
         <ol class="shallow">
           <li><b><i>How</i></b> to consume the data</li>
           <li>What the <b><i>consumer PRODUCES</i></b> next</li>
-        </ul>
+          <li>Side-effects against the consumer</li>
+        </ol>
         <li>Innovation B: actors (processes) in the system are <b><i>dynamically induced</i></b> to produce and consume events</li>
+      </ul>
+    </li>
+
+    <li>Relation to linear algebra's <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition" target="_blank">Singular Value Decomposition</a>
+      <ul class="shallow">
+        <li>Event dispatch systems organize an actor's <i><b>compute</b></i> into 3 distinct parts much like <b><i>A = USV'</i></b></li>
+        <ol class="shallow">
+          <li>Sensitivity and deserialization of phenomenon (V unitary matrix)</li>
+          <li>What happens against deserialized data (Scaling and rotating, S and U)</li>
+          <li>What happens next / producing events and phenomenon for other actors (generating output matrices)</li>
+        </ol>
+        <li>
+          We see that just as a set of operations can be represented as matrix <b><i>A</i></b>, it can be represented as what it responds to <b><i>V</i></b>, what it scales and how <b><i>S</i></b>, and how it rotates <b><i>U</i></b>
+        </li>
+        <li>
+          Came across this understanding for SVD vs compute in the context of understanding why the <i>last column of V</i> is the solution to the <i>homogeneous least-squares problem Ax = 0</i>
+        </li>
+        <ul>
+          <li>The last column of V, when applied against V because V is unitary produces a unit vector with the 1 at the spot matching the smallest S scale</li>
+          <li>This will rotate and scale the input matrix <b><i>x</i></b> as close as possible to 0 vec</li>
+        </ul>
+        <li>We can understand event dispatch systems as a <b><i>graph of computing matrices (actors)</i></b> passing around <b><i>matrices (events)</i></b></li>
       </ul>
     </li>
   </ul>
