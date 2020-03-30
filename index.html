@@ -733,7 +733,7 @@
 
 <div id="unicycle" class="project well">
   <a href="#rover_0_main" class="example_toggler">Hub-motor powered electric unicycle!</a>
-  <ul>
+  <ul class="shallow">
     <li>Inspired by <a href="https://www.stephanboyer.com/post/17/my-electric-unicycle" target="_blank">Stephen Boyer’s project</a></li>
     <li>Side-project during undergrad senior year, working out of <a href="https://hkn.eecs.umich.edu/" target="_blank">HKN</a> Special Projects Lab</li>
     <li>Sourced the frame stock and other stuff from <a href="https://goo.gl/maps/Ph9JKFbMwm82" target="_blank">Stadium Hardware</a></li>
@@ -741,11 +741,29 @@
     <li>Sourced the battery and motor from online</li>
     <li>Learned how to crimp wires (did so much), drill mounting holes, work with a motor controller, deal with lead-acid batteries</li>
     <li>Final results: 
-      <a href="https://drive.google.com/open?id=1Z1d6a1MHbWwbo3VTVvgfroBZD2GSh8hP" target="_blank">Video</a>
+      <!-- <a href="https://drive.google.com/open?id=1Z1d6a1MHbWwbo3VTVvgfroBZD2GSh8hP" target="_blank">Video</a> -->
+      <ul class="shallow">
+        <li>
+          <a href="#imu_kalman_filter" class="example_toggler">Adafruit 10DOF IMU (gyro control input, accel measurement) Kalman Filter</a>
+          <ul class="shallow">
+            <li>4dim state: roll/roll bias/pitch/pitch bias</li>
+            <li>Predict: state function: pitch/roll = (gyro respective reading in deg / s) * dt - (respective bias estimate) * dt</li>
+            <li>Predict: state function: pitch bias /roll bias stays same</li>
+            <li>Predict covariance matrix, used later for computing (innovation covariance), (kalman gain terms)</li>
+            <hr/>
+            <li>Update: respective innovation = (accel respective measurement) - (predicted pitch/roll)</li>
+            <li>Compute innovation covariance, + measurement covariance term => update kalman gain terms (for each bit of 4dim state)</li>
+            <li><a href="#imu_kalman_estimate_components" class="example_toggler">Update estimated pitch/roll = <span style="color:red">(predicted state pitch/roll)</span> + <span style="color:cyan">(respective kalman gain</span> * <span style="color:green">(respective innovation)</span><span style="color:cyan">)</span></a></li>
+            <ul class="shallow"><li><i>ignore magenta in plot above</i></li></ul>
+            <li>Update covariance matrix</li>
+          </ul>
+        </li>
     </li>
   </ul>
   <!--   <img class="toggle_example lazyload" id="rover_0_main" data-src="./media/rover/rover_0_unicycle/rover0_unicycle_2013_01_13.jpg" class="img-fluid"> -->
   <img class="toggle_example lazyload" id="rover_0_main" data-src="./media/rover/rover_0_unicycle/rover0.gif" class="img-fluid">
+  <img class="toggle_example lazyload" id="imu_kalman_filter" data-src="./media/rover/rover_0_unicycle/g_10_imu10dof_kf_test_3_note_smoothness_reject_spikes.png" class="img-fluid">
+  <img class="toggle_example lazyload" id="imu_kalman_estimate_components" data-src="./media/rover/rover_0_unicycle/g_06_red_cyan_should_equal_magenta.png" class="img-fluid">
 </div>
 
 <div id="constellations" class="project well">
