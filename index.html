@@ -353,24 +353,6 @@
       </ul>
     </li>
 
-    <li><span style="color:rgb(255, 0, 0)"><b>Iteration</b></span> vs <span style="color:rgb(0, 0, 255)"><b>Recursion</b></span>
-      <ul class="shallow">
-        <li>In robotics systems there is a <b>compute / responsibility scaling issue</b> where a <b>tree hierarchy</b> of "higher" level controllers (orchestrators) need to <span style="color:rgb(255, 0, 0)"><b>iterate</b></span> over primitives, data structures, and intake heterogeneous data</li>
-        <li>
-          Instead, we can use <span style="color:rgb(0, 0, 255)"><b>recursion</b></span>, so <b><i>only the bits most local to a primitive dictate its role in a larger system</i></b>
-        </li>
-        <li>Instead of a <b>tree topology</b>, event-dispatch systems manifest a <b>concurrent network topology</b></li>
-        <li>* <span style="color:rgb(255, 0, 0)"><b>Iteration</b></span> <b>requires a "higher" compute process</b> but <span style="color:rgb(0, 0, 255)"><b>recursion</b></span> does not!</li>
-      </ul>
-    </li>
-
-    <li>VS. <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span>
-      <ul class="shallow">
-        <li>This has been compared to <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> often, but <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> can <b>only be in 1 state at a time</b> but event dispatch is <b>fundamentally concurrent and parallel</b></li>
-        <li>In addition, <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> often exist at the highest level controller but events are often <b>serialized-deserialize'd</b> over-the-wire <b>between processes</b></li>
-      </ul>
-    </li>
-
     <li>How event dispatch systems use <a href="https://en.wikipedia.org/wiki/Blackboard_system" target="_blank">blackboards</a>
       <ul class="shallow">
         <li>In event-dispatch systems, each actor has a blackboard (look-up table)</li>
@@ -395,26 +377,57 @@
         <li>Note that in such a system <i>communication == computation</i>, without signals <i>between</i> processes, there is no <i>computation</i> on any process</li>
       </ul>
     </li>
+  </ul>
+
+  <hr><a class="example_toggler" id="ed_context_toggle" href="#ed_context">Context</a>
+  <ul class="shallow toggle_example" id="ed_context">
+    <li><span style="color:rgb(255, 0, 0)"><b>Iteration</b></span> vs <span style="color:rgb(0, 0, 255)"><b>Recursion</b></span>
+      <ul class="shallow">
+        <li>In robotics systems there is a <b>compute / responsibility scaling issue</b> where a <b>tree hierarchy</b> of "higher" level controllers (orchestrators) need to <span style="color:rgb(255, 0, 0)"><b>iterate</b></span> over primitives, data structures, and intake heterogeneous data</li>
+        <li>
+          Instead, we can use <span style="color:rgb(0, 0, 255)"><b>recursion</b></span>, so <b><i>only the bits most local to a primitive dictate its role in a larger system</i></b>
+        </li>
+        <li>Instead of a <b>tree topology</b>, event-dispatch systems manifest a <b>concurrent network topology</b></li>
+        <li>* <span style="color:rgb(255, 0, 0)"><b>Iteration</b></span> <b>requires a "higher" compute process</b> but <span style="color:rgb(0, 0, 255)"><b>recursion</b></span> does not!</li>
+      </ul>
+    </li>
+
+    <li>VS. <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span>
+      <ul class="shallow">
+        <li>This has been compared to <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> often, but <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> can <b>only be in 1 state at a time</b> but event dispatch is <b>fundamentally concurrent and parallel</b></li>
+        <li>In addition, <span style="color:rgb(106, 90, 205);"><b><i>state-machines</i></b></span> often exist at the "highest" level controller but events are often <b>serialized-deserialize'd</b> over-the-wire <b>between processes</b></li>
+      </ul>
+    </li>
 
     <li>Relation to linear algebra's <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition" target="_blank">Singular Value Decomposition</a>
       <ul class="shallow">
-        <li>Event dispatch systems organize an actor's <i><b>compute</b></i> into 3 distinct parts much like <b><i>A = USV'</i></b></li>
-        <ol class="shallow">
-          <li>Sensitivity and deserialization of phenomenon (V unitary matrix)</li>
-          <li>What happens against deserialized data (Scaling and rotating, S and U)</li>
-          <li>What happens next / producing events and phenomenon for other actors (generating output matrices)</li>
-        </ol>
-        <li>
-          We see that just as a set of operations can be represented as matrix <b><i>A</i></b>, it can be represented as what it responds to <b><i>V</i></b>, what it scales and how <b><i>S</i></b>, and how it rotates <b><i>U</i></b>
-        </li>
         <li>
           Came across this understanding for SVD vs compute in the context of understanding why the <i>last column of V</i> is the solution to the <i>homogeneous least-squares problem Ax = 0</i>
+          <ul>
+            <li>The last column of V, when applied against V <b><i>because V is unitary</i></b> produces a unit vector with the 1 at the spot <b><i>matching the smallest S scale</i></b></li>
+            <li><b><i>x</i></b> is internalized to a unit vector scaled as close as possible to 0</li>
+          </ul>
         </li>
-        <ul>
-          <li>The last column of V, when applied against V because V is unitary produces a unit vector with the 1 at the spot matching the smallest S scale</li>
-          <li>This will rotate and scale the input matrix <b><i>x</i></b> as close as possible to 0 vec</li>
-        </ul>
-        <li>We can understand event dispatch systems as a <b><i>graph of computing matrices (actors)</i></b> passing around <b><i>matrices (events)</i></b></li>
+
+        <li>Event dispatch systems organize an actor's <i><b>compute</b></i> into 3 distinct parts much like <b><i>A = <span style="color:red">U</span><span style="color:blue">S</span><span style="color:green">V'</span></i></b></li>
+        <ol class="shallow">
+          <li>Sensitivity and deserialization of phenomenon from the input into some "internal" representation (<b><i><span style="color:green">V</span></i></b> unitary matrix)</li>
+          <li>What happens against deserialized data (Scaling and rotating, <b><i><span style="color:blue">S</span></i></b> and <b><i><span style="color:red">U</span></i></b>)</li>
+          <li>What happens next / producing events and phenomenon for other actors (also <b><i><span style="color:blue">S</span></i></b> and <b><i><span style="color:red">U</span></i></b>)</li>
+        </ol>
+        <li>
+          Just as <i><b>any</b></i> set of operations can be represented as matrix <b><i>A</i></b>, it can be represented as what it responds to <b><i><span style="color:green">V</span></i></b>, how it scales <b><i><span style="color:blue">S</span></i></b> and rotates <b><i><span style="color:red">U</span></i></b>
+          <ul class="shallow">
+            <li>
+              Compute concepts (<b><i>control flow (if-else), weighted summing, gains + bias, filtering, state-change</i></b>) all relate to changes in a <b><i>high-dimensional state</i></b>
+            </li>
+            <li>
+              Modifications on this state can be seen as <span style="text-decoration: underline;">localized</span> <b><i><span style="color:blue">S scaling</span></i></b> and <b><i><span style="color:red">U rotation</span></i></b> <span style="text-decoration: underline;">happening concurrently across the system</span>
+            </li> 
+          </ul>
+        </li>
+
+        <li>Event dispatch systems are a <span style="color:red"><b><i>graph of computing matrices (actors)</i></b></span> passing around <span style="color:blue"><b><i>matrices (events)</i></b></span> across various <span style="color:green"><b><i>substrates (queues + condition variables, semaphores, etc.)</i></b></span></li>
       </ul>
     </li>
   </ul>
@@ -428,7 +441,7 @@
         <li>Race conditions: starvation of events or event streams, data corruption, etc.</li>
       </ul>
     </li>
-    <li>Because there is no central orchestrator, 'global' progress requires extra structure</li>
+    <li>Because there is no central orchestrator, 'global' progress becomes more complex</li>
   </ul>
 
   <div class="toggle_example" id="event_dispatch_example">
