@@ -776,6 +776,10 @@
           <ul class="shallow">
             <li>4dim state: roll/roll bias/pitch/pitch bias</li>
             <li>Predict: state function: pitch/roll = (gyro respective reading in deg / s) * dt - (respective bias estimate) * dt</li>
+            <ul>
+              <li>The state transition function Ax is f(bias, dt)</li>
+              <li>Gyro readings are the <b><i>control input</i></b>, applied via Bu</li>
+            </ul>
             <li>Predict: state function: pitch bias /roll bias stays same</li>
             <li>Predict covariance matrix, used later for computing (innovation covariance), (kalman gain terms)</li>
             <hr/>
@@ -786,7 +790,6 @@
             <li>Update covariance matrix</li>
           </ul>
         </li>
-        <li>More to come: kalman filter of ultrasonic vs. wheel encoders</li>
     </li>
   </ul>
   <!--   <img class="toggle_example lazyload" id="rover_0_main" data-src="./media/rover/rover_0_unicycle/rover0_unicycle_2013_01_13.jpg" class="img-fluid"> -->
