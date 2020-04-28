@@ -613,7 +613,16 @@
 
   <hr><a class="example_toggler" id="sidefinding_outcomes_toggle" href="#sidefinding_outcomes">Outcomes</a>
   <ul class="shallow toggle_example" id="sidefinding_outcomes">
-    <li><a href="#sidefinding_0" class="example_toggler">Counting, finding 'facing' sides (BZl03E supplemental <b><i>intermediate-value-theorem</i></b> based algorithm involved), scene understanding</a>
+    <li>
+      <a href="#sidefinding_0" class="example_toggler">Counting, finding 'facing' sides (BZl03E supplemental <b><i>intermediate-value-theorem</i></b> based algorithm involved), scene understanding</a>
+      <ul>
+        <li>For each endpoint of a wall-line, get a vector from that endpoint to view point</li>
+        <li>For each vector, compute internal angle w.r.t. wall-line itself (angle between vector and vector from endpoint to other endpoint)</li>
+        <li>You now have 2 internal angles. Look at their numerical values.</li>
+        <li>If one angle is < 90deg, and another angle is >= 90deg, then by IVT that means there exists a point between two endpoints, aka on the wall-line, s.t. that point is normal to the view point</li>
+        <li>If such a point exists, the wall-line is 'facing' the view point</li>
+        <li>One reason I love math is this decoupling of <i>finding existence</i> from <i>proving existence</i>: you don't need to find it to know if it exists or doesn't!</li>
+      </ul>
       <img class="toggle_example lazyload" id="sidefinding_0" data-src="./media/sidefinding/scene_understanding_0.gif" class="img-fluid">
     </li>
   </ul>
