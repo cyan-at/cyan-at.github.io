@@ -395,7 +395,7 @@
           <li>Side-effects against the consumer</li>
         </ol>
         <li>Innovation B: actors (processes) in the system are <b><i>dynamically induced</i></b> to produce and consume events</li>
-        <li>Note that in such a system <i>communication == computation</i>, without signals <i>between</i> processes, there is no <i>computation</i> on any process</li>
+        <li>Note that in such a system <b><i>communication == computation</i></b>, without signals <i>between</i> processes, there is no <i>computation</i> on any process</li>
       </ul>
     </li>
   </ul>
@@ -449,6 +449,13 @@
         </li>
 
         <li>Event dispatch systems are a <span style="color:red"><b><i>graph of computing matrices (actors)</i></b></span> passing around <span style="color:blue"><b><i>matrices (events)</i></b></span> across various <span style="color:green"><b><i>substrates (queues + condition variables, semaphores, etc.)</i></b></span></li>
+      </ul>
+    </li>
+
+    <li>Relation to <a href="https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization" target="_blank">RAII</a>: resource posession == object lifetime
+      <ul class="shallow">
+        <li>If you do not acquire the resource, the object does not exist.</li>
+        <li>The presence of the resource (the what) implies the existence of the object (the how)</li>
       </ul>
     </li>
   </ul>
