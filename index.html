@@ -136,7 +136,27 @@
     <li><a class="example_toggler" href="#threaded_insert_holes_gif">First cut</a>: making <a class="example_toggler" href="#threaded_insert_holes">holes</a> for threaded inserts on plywood spoilboard</a></li>
     <li><a class="example_toggler" href="#parts_for_rover4">(plywood) robot parts set 1</a>: body for rover4</li>
     <li><a class="example_toggler" href="#parts_for_rover4_alu_test">(aluminum 1.5mm) robot legs test</a>: legs for rover4</li>
-    <li><a class="example_toggler" href="#parts_for_rover4_alu_thicc">(aluminum 1/8")</a>: legs for rover4</li>
+    <li>
+      <a class="example_toggler" href="#parts_for_rover4_alu_thicc">(aluminum 1/8")</a>: legs for rover4
+      <ul class="shallow">
+        <li><a class="example_toggler" href="#shop_vac_airflow_spray_bottle_alu_cooling">Using spray water and vacuum for air-flow</a></li>
+        <li><a class="example_toggler" href="#j_09_clamp_fail_recalibrate_manually_on_pair_of_holes">After cut fails with 10 / 120 minutes left, recalibrate against pair of holes and 'patch' cad-cams</a></li>
+        <li><a class="example_toggler" href="#j_09_patch_technique">Patch technique</a></li>
+        <ul class="shalow toggle_example" id="j_09_patch_technique">
+          <li>find a prior cut hole, jog tool to it and plunge in to confirm x-y alignment</li>
+          <li>Duplicate original cam to patch cad-cam, remove what you don't want to re-cut</li>
+          <li>With what you want to re-cut left, move origin to that hole you plunged into and make sure cam <b>starts</b> from origin. Generate GCODE</li>
+          <li>Move tooltip to an 'good-enough' Z = 0 level.</li>
+          <li>Issue GCODE: <b>G92</b> X0 Y0 Z0 to make CNC think that this physical spot is X0, Y0, Z0 (origin)</li>
+          <li>Optional: if there is another hole nearby in patch cad-cam, <b>G1</b> to move tool to that hole, plunge to confirm the second hole location. This will confirm the <b><i>theta</i></b> rotation alignment between physical and cad-cam</li>
+          <hr>
+          <li>Move tool to a physical origin (calibration hole) and z = 0. <i>Use G92 to calibrate CNC that this physical spot is also cad-cam origin</i></li>
+          <li>Load patch cad-cam that starts from that hole as 'origin X0 Y0 Z0'</li>
+          <li>Turn on tool, start print. Complete the cut!</li>
+        </ul>
+        <li><a class="example_toggler" href="#j_09_patch_cut_after_clamp_fail">After the clamps failed, and calibrating on a pair of holes, patch cut the rest</a></li>
+      </ul>
+    </li>
     <li>
       More media to come!
     </li>
@@ -152,6 +172,11 @@
   <img class="toggle_example lazyload" id="parts_for_rover4" data-src="./media/drake/drake0_lowriderv2/j_07_parts_for_rover4.jpg" class="img-fluid">
   <img class="toggle_example lazyload" id="parts_for_rover4_alu_test" data-src="./media/drake/drake0_lowriderv2/j_08_aluminum_1point5mm_test.jpg" class="img-fluid">
   <img class="toggle_example lazyload" id="parts_for_rover4_alu_thicc" data-src="./media/drake/drake0_lowriderv2/j_08_rover4_legs_eighthinchaluminum.jpg" class="img-fluid">
+
+
+  <img class="toggle_example lazyload" id="shop_vac_airflow_spray_bottle_alu_cooling" data-src="./media/drake/drake0_lowriderv2/j_08_using_shop_vac_for_airflow_cooling.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="j_09_clamp_fail_recalibrate_manually_on_pair_of_holes" data-src="./media/drake/drake0_lowriderv2/j_09_02_calibration_hole_is_origin.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="j_09_patch_cut_after_clamp_fail" data-src="./media/drake/drake0_lowriderv2/j_09_03_patch_with_2point2mm_cut.gif" class="img-fluid">
 </div>
 
 <div id="coursera" class="project well">
