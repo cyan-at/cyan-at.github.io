@@ -124,31 +124,39 @@
 
 <!-- ----------------------------------------------------- CONTENT -->
 
-<div id="rover3" class="project well">
-  <a href="#rover_3_example_main" class="example_toggler">Rover 3: 'Stan' (49 secs, 2x)</a>
-  <ul class="shallow">
-    <li>Apply KF (sensor fusion) for 9DOF IMU (BNO055), PID + LQR/G control via DRV8825 on 2x NEMA17 stepper motors</li>
-    <li>Adafruit BNO055 is better than Adafruit 10DOF LSM303 IMU signal, buy better vs try / fail to compensate noise</li>
-    <li>Insight: the 'inverted-pendulum on cart' <i>maybe</i> is <span style="color:red"><b><i>2 antagonistic</i></b></span> control problems:</li>
-    <ul class="shallow">
-      <li><span style="color:rgb(255, 99, 71);"><b>Tilt control</b></span>: keep the IMU sensor-fused/filtered signal on calibrated pitch to a calibrated target reading</li>
-      <li><span style="color:rgb(100, 150, 90);"><b>Base position control</b></span>: keep the base from moving too far in either direction</li>
-      <li>Antagonism example if tilt is slightly forwards:
-        <ul class="shallow">
-          <li><span style="color:rgb(255, 99, 71);"><b>tilt control</b></span> generates control signal to move forward. high PID gains means more responsive</li>
-          <li>Without <span style="color:rgb(100, 150, 90);"><b>base position control</b></span> on this current implementation for some mechanical (wheel slip) / controls (imperfect gains) issue if it fails to <b><i>correct adequately</i></b> for the tilt, then the nonzero <span style="color:rgb(255, 99, 71);"><b>tilt control signal</b></span> will cause base to displace in some direction <b><i><span style="text-decoration: underline;">indefinitely</span></i></b></li>
-          <li>Situation where <b><i>increasing gains for better <span style="color:rgb(255, 99, 71);"><b>tilt control</b></span></i></b> meant <b><i>faster <span style="color:rgb(100, 150, 90);"><b>unbounded base displacement</b></span></i></b> -> <a href="https://en.wikipedia.org/wiki/Underdetermined_system" target="_blank">an underdetermined system</a> without solution</li>
-          <li>Stop-gap solution <b><i>(really hacky!)</i></b>:
-            <ul class="shallow">
-              <li>refgen component takes pid output (velocity) applies gain and integrating with time to 'estimate' base displacement</li>
-              and outputing a linear refgen</li>
-              <li>refgen oscillates between 2 setpoints of 'goal' base displacement, with linear interpolation</li>
-              <li>refgen output of control position is used as part of pid error</li>
-            </ul>
-        </ul>
-    </ul>
-  </ul>
-  <img class="toggle_example lazyload" id="rover_3_example_main" data-src="./media/rover/rover3/d_09_shake(y)out_pidtilt_and_refgen_behavior_to_bound_x_base_displacement.gif" class="img-fluid">
+<div id="rover3" class="container project well">
+  <div class="row">
+    <div class="col-md-6">
+      <a href="#rover_3_example_main" class="example_toggler">Rover 3: 'Stan' (49 secs, 2x)</a>
+      <ul class="shallow">
+        <li>Apply KF (sensor fusion) for 9DOF IMU (BNO055), PID + LQR/G control via DRV8825 on 2x NEMA17 stepper motors</li>
+        <li>Adafruit BNO055 is better than Adafruit 10DOF LSM303 IMU signal, buy better vs try / fail to compensate noise</li>
+        <li>Insight: the 'inverted-pendulum on cart' <i>maybe</i> is <span style="color:red"><b><i>2 antagonistic</i></b></span> control problems:
+          <ul class="shallow">
+            <li><span style="color:rgb(255, 99, 71);"><b>Tilt control</b></span>: keep the IMU sensor-fused/filtered signal on calibrated pitch to a calibrated target reading</li>
+            <li><span style="color:rgb(100, 150, 90);"><b>Base position control</b></span>: keep the base from moving too far in either direction</li>
+            <li>Antagonism example if tilt is slightly forwards:
+              <ul class="shallow">
+                <li><span style="color:rgb(255, 99, 71);"><b>tilt control</b></span> generates control signal to move forward. high PID gains means more responsive</li>
+                <li>Without <span style="color:rgb(100, 150, 90);"><b>base position control</b></span> on this current implementation for some mechanical (wheel slip) / controls (imperfect gains) issue if it fails to <b><i>correct adequately</i></b> for the tilt, then the nonzero <span style="color:rgb(255, 99, 71);"><b>tilt control signal</b></span> will cause base to displace in some direction <b><i><span style="text-decoration: underline;">indefinitely</span></i></b></li>
+                <li>Situation where <b><i>increasing gains for better <span style="color:rgb(255, 99, 71);"><b>tilt control</b></span></i></b> meant <b><i>faster <span style="color:rgb(100, 150, 90);"><b>unbounded base displacement</b></span></i></b> -> <a href="https://en.wikipedia.org/wiki/Underdetermined_system" target="_blank">an underdetermined system</a> without solution</li>
+                <li>Stop-gap solution <b><i>(really hacky!)</i></b>:
+                  <ul class="shallow">
+                    <li>refgen component takes pid output (velocity) applies gain and integrating with time to 'estimate' base displacement</li>
+                    and outputing a linear refgen</li>
+                    <li>refgen oscillates between 2 setpoints of 'goal' base displacement, with linear interpolation</li>
+                    <li>refgen output of control position is used as part of pid error</li>
+                  </ul>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <img class="toggle_example lazyload" style="width:50%;margin-left:auto;margin-right:auto;" id="rover_3_example_main" data-src="./media/rover/rover3/d_09_shake(y)out_pidtilt_and_refgen_behavior_to_bound_x_base_displacement.gif" class="img-fluid">
+    </div>
+  </div>
 </div>
 
 <div id="lowriderv2" class="project well">
