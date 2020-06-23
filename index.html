@@ -129,9 +129,9 @@
     <div class="col-md-10">
       <a href="#rover_3_example_main" class="example_toggler">Rover 3: 'Stan' (49 secs, 2x)</a>
       <ul class="shallow">
-        <li>Apply KF (sensor fusion) for 9DOF IMU (BNO055), PID + LQR/G control via DRV8825 on 2x NEMA17 stepper motors</li>
-        <li>Adafruit BNO055 is better than Adafruit 10DOF LSM303 IMU signal, buy better vs try / fail to compensate noise</li>
-        <li>Insight: the 'inverted-pendulum on cart' <i>maybe</i> is <span style="color:red"><b><i>2 antagonistic</i></b></span> control problems:
+        <li>Apply KF (sensor fusion) for 9DOF IMU (BNO055), PID + LQR/G control via DRV8825 on 2x NEMA17 stepper motors, ATMEGA2560 board</li>
+        <li>2020-06-21 insight: Adafruit BNO055 is better than Adafruit 10DOF LSM303 IMU signal (buy better vs try + fail to compensate noise)</li>
+        <li>2020-06-21 insight: the 'inverted-pendulum on cart' <i>maybe</i> is <span style="color:red"><b><i>2 antagonistic</i></b></span> control problems:
           <ul class="shallow">
             <li><span style="color:rgb(255, 99, 71);"><b>Tilt control</b></span>: keep the IMU sensor-fused/filtered signal on calibrated pitch to a calibrated target reading</li>
             <li><span style="color:rgb(100, 150, 90);"><b>Base position control</b></span>: keep the base from moving too far in either direction</li>
@@ -150,6 +150,13 @@
               </ul>
             </li>
             <li>NOT a segway (base position blowing up == the whole point)</li>
+          </ul>
+        </li>
+        <li>2020-06-21 next steps:
+          <ul class="shallow">
+            <li>repeated falls while testing caused ATMEGA2560 shield short? remake</li>
+            <li>3D printed wheels are way too slippery, try cnc cutting out of MDF + double sided tape</li>
+            <li>Frame is too narrow for rover4 to walk through, replace with longer plywood cuts</li>
           </ul>
         </li>
       </ul>
