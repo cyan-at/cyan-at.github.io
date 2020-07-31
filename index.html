@@ -61,8 +61,8 @@
       <li><a href="#sidefinding">Sidefinding</a></li>
       <li><a href="#eventdispatch">Event Dispatch</a></li>
       <!--       
-      <li><a class="in_progress">Relaxed Euler trails (coming soon)</a></li>
-      <li><a class="in_progress">Rectilinear polygons (coming soon)</a></li>
+      <li><a class="in_progress">Relaxed Euler trails (for every graph, is there a way to traverse every edge EXACTLY twice?)</a></li>
+      <li><a class="in_progress">Rectilinear polygons (Partition a rectilinear polygon into minimum cuts aka maximum rectangles algorithm using decision trees on choosing polarity at each transition joint on github)</a></li>
       -->
     </ul>
     <h4>Intangibles</h4>
@@ -125,6 +125,47 @@
 </div>
 
 <!-- ----------------------------------------------------- CONTENT -->
+
+<div id="matrix_perspectives" class="project well">
+  <a class="example_toggler" href="#rover4_main">Matrix: 3 perspectives
+  </a>
+  <ul class="shallow">
+    <li>Linear algebra matrices have many interepretations, here are mine with examples</li>
+    <li>
+      How they relate to signals/systems
+      <ul class="shallow">
+        <li>
+          <a class="example_toggler" href="#matrix_perspectives_capture">Capture</a>: systems iterate and <b>transduce</b> signals (matrices == representations of state)
+          <ul class="shallow toggle_example lazyload" id="matrix_perspectives_capture">
+            <li>In biology receptor-medicated endocytosis, in organizations, individuals interface with clients and capture requirements</li>
+            <li>Sensors, estimators iterate at some rate and transduce signals to more processed data</li>
+            <li>Kalman Filters take an observation for correction during <i>update</i>, capture state before and after propagation</li>
+            <li>In math, matrices capture n-dimensional states, as well as meta-information like Gaussian variance / covariance, graph connections, etc.</li>
+            <li>Matrix operations capture (propagate, sample, and transform) states in various ways</li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="example_toggler" href="#matrix_perspectives_currency">Currency</a>: systems <b>produce/consume</b> quantums of signal (matrices == objects to transceive)
+          <ul class="shallow toggle_example lazyload" id="matrix_perspectives_currency">
+            <li>In biology enzyme-substrate complexes <i>reduce the activation energy</i> to consume inputs and drive production</li>
+<!--             <li>Sensors, estimators iterate at some rate and transduce signals to more processed data</li>
+            <li>Kalman Filters take an observation for correction during <i>update</i>, capture state before and after propagation</li>
+            <li>In math, matrices capture n-dimensional states, as well as meta-information like Gaussian variance / covariance, graph connections, etc.</li> -->
+          </ul>
+        </li>
+
+        <li>
+          <a class="example_toggler" href="#matrix_perspectives_imperative">Imperative</a>: systems <b>derive</b> quantums of imperative (matrices == transition descriptions)
+          <ul class="shallow toggle_example lazyload" id="matrix_perspectives_imperative">
+            <li>In biology mRNA and tRNA <i>instruct</i> enzyme-substrate proteins complexes</li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+  </ul>
+</div>
 
 <div id="rover4" class="project well">
   <a class="example_toggler" id="lowriderv2_shakeout_crown_toggle" href="#rover4_main">Rover 4: Stanford Pupper
