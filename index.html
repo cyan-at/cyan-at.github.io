@@ -149,15 +149,24 @@
           <a class="example_toggler" href="#matrix_perspectives_currency">Currency</a>: systems <b>produce/consume</b> quantums of signal (matrices == objects to transceive)
           <ul class="shallow toggle_example lazyload" id="matrix_perspectives_currency">
             <li>In biology enzyme-substrate complexes <i>reduce the activation energy</i> to consume inputs and drive production</li>
-<!--             <li>Sensors, estimators iterate at some rate and transduce signals to more processed data</li>
-            <li>Kalman Filters take an observation for correction during <i>update</i>, capture state before and after propagation</li>
-            <li>In math, matrices capture n-dimensional states, as well as meta-information like Gaussian variance / covariance, graph connections, etc.</li> -->
+            <li>In computer systems, inter-process communications mechanisms (ROS1/2, DDS / protobuf, gRPC, serial) describe signals that systems produce and consume
+              <ul class="shallow">
+                <li>The interfaces define <i>how</i> to communicate, so shape <i>what</i> is communicated</li>
+              </ul>
+            </li>
           </ul>
         </li>
 
         <li>
-          <a class="example_toggler" href="#matrix_perspectives_imperative">Imperative</a>: systems <b>derive</b> quantums of imperative (matrices == transition descriptions)
+          <a class="example_toggler" href="#matrix_perspectives_imperative">Imperative</a>: systems derive <b>quantums of imperative</b> (matrices == transition descriptions)
           <ul class="shallow toggle_example lazyload" id="matrix_perspectives_imperative">
+            <li>Any matrix can be factorized with <a href="https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/book-chapter-4.pdf" target="_blank">Singular Value Decomposition</a>, so any matrix <i>describes a rotation, scaling, and rotation s.t. the two rotations are <b><a href="https://en.wikipedia.org/wiki/Unitary_matrix" target="_blank">unitary</a></b></i></li>
+            <ul class="shallow">
+              <li>Least-squares Ax = 0 solutions take advantage of the fact that the <i>last column of V once applied to its transpose will be rotated to a unit vector aligned with the smallest scale == the last column of V is closest to A's <b>nullspace</b></i></li>
+              <li>The U matrix is used in PCA (need followup)</li>
+              <li><a href="https://youtu.be/EokL7E6o1AE" target="_blank">I <b>highly</b> recommend Nate Kuntz's videos on these topics</a></li>
+            </ul>
+            <li>Homogeneous transforms describe a spatial transform (rotate + translate) from one frame to another</li>
             <li>In biology mRNA and tRNA <i>instruct</i> enzyme-substrate proteins complexes</li>
           </ul>
         </li>
