@@ -127,8 +127,7 @@
 <!-- ----------------------------------------------------- CONTENT -->
 
 <div id="matrix_perspectives" class="project well">
-  <a class="example_toggler" href="#rover4_main">Matrix: 3 perspectives
-  </a>
+  3 perspectives on matrices
   <ul class="shallow">
     <li>Linear algebra matrices have many interepretations, here are mine with examples</li>
     <li>
@@ -137,17 +136,18 @@
         <li>
           <a class="example_toggler" href="#matrix_perspectives_capture">Capture</a>: systems iterate and <b>transduce</b> signals (matrices == representations of state)
           <ul class="shallow toggle_example lazyload" id="matrix_perspectives_capture">
+            <li>In math, matrices capture n-dimensional states, as well as meta-information like Gaussian variance / covariance, graph connections, etc.</li>
+            <li>Matrix operations capture (propagate, sample, and transform) states in various ways</li>
             <li>In biology receptor-medicated endocytosis, in organizations, individuals interface with clients and capture requirements</li>
             <li>Sensors, estimators iterate at some rate and transduce signals to more processed data</li>
             <li>Kalman Filters take an observation for correction during <i>update</i>, capture state before and after propagation</li>
-            <li>In math, matrices capture n-dimensional states, as well as meta-information like Gaussian variance / covariance, graph connections, etc.</li>
-            <li>Matrix operations capture (propagate, sample, and transform) states in various ways</li>
           </ul>
         </li>
 
         <li>
           <a class="example_toggler" href="#matrix_perspectives_currency">Currency</a>: systems <b>produce/consume</b> quantums of signal (matrices == objects to transceive)
           <ul class="shallow toggle_example lazyload" id="matrix_perspectives_currency">
+            <li>Matrices define 'routing', 'indexing', 'weighted combination' of input signals to output signals, defining the <i>consumption</i> of inputs and <i>production</i> of new signals</li>
             <li>In biology enzyme-substrate complexes <i>reduce the activation energy</i> to consume inputs and drive production</li>
             <li>In computer systems, inter-process communications mechanisms (ROS1/2, DDS / protobuf, gRPC, serial) describe signals that systems produce and consume
               <ul class="shallow">
