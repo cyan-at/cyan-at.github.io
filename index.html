@@ -57,7 +57,9 @@
   <div class="col-md-4">
     <h4>Maths | Algs | Data structs</h4>
     <ul>
-      <li><a href="#matrix_perspectives" class="in_progress">Matrix: 3 perspectives</a></li>
+      <li><a href="#modeling_decomposition" class="lowkey">Modeling: 3 decomposition</a></li>
+      <li><a href="#information_kinds" class="lowkey">Information: 3 kinds</a></li>
+      <li><a href="#matrix_perspectives" class="lowkey">Matrix: 3 takes</a></li>
       <li><a href="#sidefinding">Sidefinding</a></li>
       <li><a href="#eventdispatch">Event Dispatch</a></li>
       <!--       
@@ -100,7 +102,7 @@
     </ul>
     <h4>Mechatronics</h4>
     <ul>
-      <li><a href="#rover4" class="in_progress">Rover 4 / pupper: quadruped #2020</a></li>
+      <li><a href="#rover4">Rover 4 / pupper: quadruped #2020</a></li>
       <li><a href="#rover3">Rover 3 / Stan: inverted pendulum #2020</a></li>
       <li><a href="#rover2">Rover 2 / Zeus: Electric Go Kart!</a></li>
       <li><a href="#quadcopter">Quadcopter</a></li>
@@ -126,15 +128,80 @@
 
 <!-- ----------------------------------------------------- CONTENT -->
 
+<div id="modeling_decomposition" class="project well">
+  Modeling: 3 decomposition
+  <ul class="shallow">
+    <li>
+      <a class="example_toggler" href="#modeling_decomposition_partitions">Partitions</a>: sets (continuous or not)
+      <ul class="shallow toggle_example lazyload" id="modeling_decomposition_partitions">
+        <li>Partitions contain imperatives</li>
+        <li>Radiation spans partitions</li>
+      </ul>
+    </li>
+
+    <li>
+      <a class="example_toggler" href="#modeling_decomposition_imperatives">Imperatives</a>: geometries
+      <ul class="shallow toggle_example lazyload" id="modeling_decomposition_imperatives">
+        <li>Partitions contain imperatives</li>
+        <li>Imperatives define how a partition collapses under radiation</li>
+        <li>See below about <a href="#matrix_perspectives">imperatives</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a class="example_toggler" href="#modeling_decomposition_radiation">Radiation</a>: collapsing vectors
+      <ul class="shallow toggle_example lazyload" id="modeling_decomposition_radiation">
+        <li>Radiation drives the imperative in a partition to collapse</li>
+        <li>Radiation emits off everything within and without</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div id="information_kinds" class="project well">
+  3 kinds of information
+  <ul class="shallow">
+    <li>
+      <a class="example_toggler" href="#information_kinds_facts">Rules/Facts/Invariants</a>: here are the 'whats' of a situation or system, things we've found or decided are (relatively) unchanging (given some scope / qualification)
+      <ul class="shallow toggle_example lazyload" id="information_kinds_facts">
+        <li>These are the holds on a climbing wall</li>
+        <li>Here are the components of a system, how they talk to each other</li>
+        <li>Here are the deadlines of a process, the people involved, the steps</li>
+        <li>Here is the voltage reading on a sensor, the crash log, the mechanical part that broke</li>
+      </ul>
+    </li>
+
+    <li>
+      <a class="example_toggler" href="#information_kinds_internal_sem">Internal semantics</a>: given the rules, what does it <i>suggest</i> about something latent?
+      <ul class="shallow toggle_example lazyload" id="information_kinds_internal_sem">
+        <li>Given these holds, what does it mean about the possibility of climbing this (must be this tall, have strong core)?</li>
+        <li>Given a system, what signals will it create, what functionality does it manifest?</li>
+        <li>Given those deadlines, how what must I do in what order? How likely is success?</li>
+        <li>Given that signal, what are the underlying causes?</li>
+      </ul>
+    </li>
+
+    <li>
+      <a class="example_toggler" href="#information_kinds_outer_sem">Outer semantics</a>: how do i use what I have to get what I want?
+      <ul class="shallow toggle_example lazyload" id="information_kinds_outer_sem">
+        <li>Given these holds, which ones do I use how to get to the top?</li>
+        <li>Given a system A and system B, how do I combine them to produce a desired signal</li>
+        <li>How can I order things such that I will have this at time A and that will set me up for better outcomes at time B?</li>
+        <li>How do I contruct a trapezoidal signal given a ramp signal and inverter etc.</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
 <div id="matrix_perspectives" class="project well">
-  3 perspectives on matrices
+  Matrices: 3 takes
   <ul class="shallow">
     <li>Linear algebra matrices have many interepretations, here are mine with examples</li>
     <li>
       How they relate to signals/systems
       <ul class="shallow">
         <li>
-          <a class="example_toggler" href="#matrix_perspectives_capture">Capture</a>: systems iterate and <b>transduce</b> signals (matrices == representations of state)
+          <a class="example_toggler" href="#matrix_perspectives_capture">Capture / springs</a>: systems iterate and <b>transduce</b> signals (matrices == representations of state)
           <ul class="shallow toggle_example lazyload" id="matrix_perspectives_capture">
             <li>In math, matrices capture n-dimensional states, as well as meta-information like Gaussian variance / covariance, graph connections, etc.</li>
             <li>Matrix operations capture (propagate, sample, and transform) states in various ways</li>
@@ -145,7 +212,7 @@
         </li>
 
         <li>
-          <a class="example_toggler" href="#matrix_perspectives_currency">Currency</a>: systems <b>produce/consume</b> quantums of signal (matrices == objects to transceive)
+          <a class="example_toggler" href="#matrix_perspectives_currency">Currency / helices</a>: systems <b>produce/consume</b> quantums of signal (matrices == objects to transceive)
           <ul class="shallow toggle_example lazyload" id="matrix_perspectives_currency">
             <li>Matrices define 'routing', 'indexing', 'weighted combination' of input signals to output signals, defining the <i>consumption</i> of inputs and <i>production</i> of new signals</li>
             <li>In biology enzyme-substrate complexes <i>reduce the activation energy</i> to consume inputs and drive production</li>
@@ -160,7 +227,7 @@
         </li>
 
         <li>
-          <a class="example_toggler" href="#matrix_perspectives_imperative">Imperative</a>: systems derive <b>quantums of imperative</b> (matrices == transition descriptions)
+          <a class="example_toggler" href="#matrix_perspectives_imperative">Imperative / spirals</a>: systems derive <b>quantums of imperative</b> (matrices == transition descriptions)
           <ul class="shallow toggle_example lazyload" id="matrix_perspectives_imperative">
             <li>Any matrix can be factorized with <a href="https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/book-chapter-4.pdf" target="_blank">Singular Value Decomposition</a>, so any matrix <i>describes a rotation, scaling, and rotation s.t. the two rotations are <b><a href="https://en.wikipedia.org/wiki/Unitary_matrix" target="_blank">unitary</a></b></i></li>
             <ul class="shallow">
