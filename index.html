@@ -380,6 +380,26 @@
         <li>Heat and thermals quickly become a concern, so you need air-flow, you need coolant, you need the <i>correct bit</i> for the correct material (different bit for carbon fiber than wood etc.)</li>
         <li>Milling MDF in my bedroom without a hood vac and the material being so lightweight compared to plywood means MDF dust gets EVERYWHERE</li>
         <li>Milling gives the ability to manifest geometries like countersinks and counterbores, but comes at the tradeoff of worrying about interference of the tool plate against workpiece clamps as the tool comes down to cut deeper (which means your actual cut dimensionare smaller). A laser cutter can stay @ elevated z but cannot manifest any 3D geometries</li>
+        <li>Table setup</li>
+        <ol class="shallow">
+          <li>Clamping sheet: 1/2" plywood with <a href="https://www.mcmaster.com/catalog/127/3570" target="_blank"> threaded insert</a> grid</li>
+          <ul class="shallow">
+            <li>Use the machine and a marker on the sheet to DRAW and CUT out the grid</li>
+            <li><a href="#">Install threaded inserts</a></li>
+            <li><a href="#">Use angle grinder + paint stripper pad to smooth out threaded insert sheet</a></li>
+          </ul>
+          <li>The clamping sheet must be high enough s.t:</li>
+          <ul class="shallow">
+            <li>tool can access BOTTOM of workpiece</li>
+            <li>bring UP the sheet: I used <a href="#">1" thick MDF sheet (same 2D dims)</a> spacer under clamping sheet to bring</li>
+            <li>AND z limit switches <a href="#">(spaced up)</a> NOT triggered (non-collision w/ x rail, nonzero clearance to limit switch)</li>
+          </ul>
+          <li>Finally, in CAM software (Estlcam + RepetierHost)
+          <ul class="shallow">
+            <li><a href="#">Here are the terms and what geometries they refer to</a></li>
+          </ul>
+          </li>
+        </ol>
       </ul>
     </li>
   </ul>
