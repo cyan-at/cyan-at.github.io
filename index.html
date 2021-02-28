@@ -380,23 +380,25 @@
         <li>Heat and thermals quickly become a concern, so you need air-flow, you need coolant, you need the <i>correct bit</i> for the correct material (different bit for carbon fiber than wood etc.)</li>
         <li>Milling MDF in my bedroom without a hood vac and the material being so lightweight compared to plywood means MDF dust gets EVERYWHERE</li>
         <li>Milling gives the ability to manifest geometries like countersinks and counterbores, but comes at the tradeoff of worrying about interference of the tool plate against workpiece clamps as the tool comes down to cut deeper (which means your actual cut dimensionare smaller). A laser cutter can stay @ elevated z but cannot manifest any 3D geometries</li>
-        <li>Table layer setup</li>
+        <li>Y-axis setup: <a class="example_toggler" href="#j_12_shitty_y_endstops">Shitty Y-axis end-stops out of 1/2" plywood screwed imprecisely to desk</a></li>
+        <li>Z-axis setup</li>
         <ol class="shallow">
           <li>Clamping sheet: 1/2" plywood with <a href="https://www.mcmaster.com/95596A500/" target="_blank"> threaded insert</a> grid</li>
           <ul class="shallow">
-            <li>Use the machine and a marker on the sheet to DRAW and CUT out the grid</li>
-            <li><a href="#">Install threaded inserts</a></li>
-            <li><a href="#">Use angle grinder + paint stripper pad to smooth out threaded insert sheet</a></li>
+            <li>Use the machine and a marker on the sheet to <a class="example_toggler" href="#j_14_draw_insert_holes">DRAW</a> and <a class="example_toggler" href="#threaded_insert_holes">CUT</a> out the grid</li>
+            <li><a class="example_toggler" href="#j_13_bolt_method">Install threaded inserts using bolt method</a></li>
+            <li><a class="example_toggler" href="#j_14_strip_inserts_smooth">Use angle grinder + paint stripper pad to smooth out threaded insert sheet</a></li>
+            <li>Be <b><i>very careful</i></b> with <a href="#j_15_faulty_inserts">threaded inserts under tension popping out ruining a job</a> or z-axis slip -> cut into an insert</li>
           </ul>
           <li>The clamping sheet must be high enough s.t:</li>
           <ul class="shallow">
-            <li>tool can access BOTTOM of workpiece</li>
-            <li>bring UP the sheet: I used <a href="#">1" thick MDF sheet (same 2D dims)</a> spacer under clamping sheet to bring</li>
-            <li>AND z limit switches <a href="#">(spaced up)</a> NOT triggered (non-collision w/ x rail, nonzero clearance to limit switch)</li>
+            <li>tool can access BOTTOM of workpiece to fully cut through</li>
+            <li>bring UP the sheet: I used <a href="#j_16_mdf_spacer">1" thick MDF sheet (same 2D dims)</a> spacer under clamping sheet to bring</li>
+            <li>AND z limit switches <a class="example_toggler" href="#j_11_z_limit_spacer">(spaced up by ~28mm)</a> NOT triggered (non-collision w/ x rail, nonzero clearance to limit switch)</li>
           </ul>
           <li>Finally, in CAM software (Estlcam + RepetierHost)
           <ul class="shallow">
-            <li><a href="#">Here are the terms and what geometries they refer to</a></li>
+            <li><a class="example_toggler" href="#j_10_estlcam_repetierhost_outer_semantics">Here are the terms and what geometries they refer to</a></li>
           </ul>
           </li>
         </ol>
@@ -424,6 +426,15 @@
   <img class="toggle_example lazyload" id="lr2_plate" data-src="./media/drake/drake0_lowriderv2/lr2_plate.jpg" class="img-fluid">
   <img class="toggle_example lazyload" id="lr2_plate_gif" data-src="./media/drake/drake0_lowriderv2/lr2_plate_popout.gif" class="img-fluid">
   <img class="toggle_example lazyload" id="lr2_packup_gif" data-src="./media/drake/drake0_lowriderv2/lr2_packup.gif" class="img-fluid">
+
+  <img class="toggle_example lazyload" id="j_12_shitty_y_endstops" data-src="./media/drake/drake0_lowriderv2/j_12_shitty_y_endstops.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="j_14_draw_insert_holes" data-src="./media/drake/drake0_lowriderv2/j_14_draw_insert_holes.png" class="img-fluid">
+  <img class="toggle_example lazyload" id="j_13_bolt_method" data-src="./media/drake/drake0_lowriderv2/j_13_bolt_method.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="j_14_strip_inserts_smooth" data-src="./media/drake/drake0_lowriderv2/j_14_strip_inserts_smooth.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="j_15_faulty_inserts" data-src="./media/drake/drake0_lowriderv2/j_15_faulty_inserts.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="j_16_mdf_spacer" data-src="./media/drake/drake0_lowriderv2/j_16_mdf_spacer.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="j_11_z_limit_spacer" data-src="./media/drake/drake0_lowriderv2/j_11_z_limit_spacer.jpg" class="img-fluid">
+  <img class="toggle_example lazyload" id="j_10_estlcam_repetierhost_outer_semantics" data-src="./media/drake/drake0_lowriderv2/j_10_estlcam_repetierhost_outer_semantics.jpg" class="img-fluid">
 </div>
 
 <div id="coursera" class="project well">
