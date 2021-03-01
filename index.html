@@ -388,12 +388,12 @@
             <li>Use the machine and a marker on the sheet to <a class="example_toggler" href="#j_14_draw_insert_holes">DRAW</a> and <a class="example_toggler" href="#threaded_insert_holes">CUT</a> out the grid</li>
             <li><a class="example_toggler" href="#j_13_bolt_method">Install threaded inserts using bolt method</a></li>
             <li><a class="example_toggler" href="#j_14_strip_inserts_smooth">Use angle grinder + paint stripper pad to smooth out threaded insert sheet</a></li>
-            <li>Be <b><i>very careful</i></b> with <a href="#j_15_faulty_inserts">threaded inserts under tension popping out ruining a job</a> or z-axis slip -> cut into an insert</li>
+            <li>Be <b><i>very careful</i></b> with <a class="example_toggler" href="#j_15_faulty_inserts">threaded inserts under tension popping out ruining a job</a> or z-axis slip -> cut into an insert</li>
           </ul>
           <li>The clamping sheet must be high enough s.t:</li>
           <ul class="shallow">
             <li>tool can access BOTTOM of workpiece to fully cut through</li>
-            <li>bring UP the sheet: I used <a href="#j_16_mdf_spacer">1" thick MDF sheet (same 2D dims)</a> spacer under clamping sheet to bring</li>
+            <li>bring UP the sheet: I used <a class="example_toggler" href="#j_16_mdf_spacer">1" thick MDF sheet (same 2D dims)</a> spacer under clamping sheet to bring</li>
             <li>AND z limit switches <a class="example_toggler" href="#j_11_z_limit_spacer">(spaced up by ~28mm)</a> NOT triggered (non-collision w/ x rail, nonzero clearance to limit switch)</li>
           </ul>
           <li>Finally, in CAM software (Estlcam + RepetierHost)
@@ -402,6 +402,23 @@
           </ul>
           </li>
         </ol>
+      </ul>
+    </li>
+    <li>
+      ::finish (what's next)
+      <ul class="shallow">
+        <li>Bring up laser cutter as a drake tool, be able to laser cut plywood and MDF</li>
+        <li>Larger workspace, stiffness improvements</li>
+        <li>
+          CAD/ESTLCAM/RAMPS software experiments such as:
+          <ul class="shallow">
+            <li>smarter (really ANY) fault reaction</li>
+            <li>better z-leveling</li>
+            <li>more integrated CAD + setup -> GCODE pipeline</li>
+          </ul>
+        </li>
+        <li>Hook up a modified power washer + garnet for WATERJET functionality!</li>
+        <li>Scale up to multiple of these rigs one for each kind of tool</li>
       </ul>
     </li>
   </ul>
