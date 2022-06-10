@@ -69,6 +69,7 @@
     </ul>
     <h4>Intangibles</h4>
     <ul>
+      <li><a href="#slip_walker">SLIP walker #2022</a></li>
       <li><a href="#cqpl">cadquery partlib #2021</a></li>
       <li><a href="#cpp_python_sfm">c++/python SFM #2021</a></li>
       <li><a href="./scratch/matching_file_neighbors.py" target="_blank">cycle testing telemetry tool</a></li>
@@ -148,6 +149,23 @@
 </div>
 
 <!-- ----------------------------------------------------- CONTENT -->
+
+<div id="slip_walker" class="project well">
+  Spring-loaded Inverted Pendulum (SLIP) model walking
+  <ul>
+    <li><a class="example_toggler" href="#slip_walker_gif">Bio-inspired locomotion class homework</a></li>
+    <li><a target="_blank" href="./media/grad/216/hw1_single_slip_walker.py">Standalone code</a></li>
+    <li>Insights:
+      <ul>
+        <li>The spring stiffness k and the 'touchdown' angle remove 'forward walking energy' from the system</li>
+        <li>'Control' through instantaneously changing the angle on 'takeoff' injects 'forward walking energy' into the system</li>
+        <li>This system has 2 phases, each with separate equations of motion and state variables, and transition equivalences between the two</li>
+      </ul>
+    </li>
+  </ul>
+
+  <img class="toggle_example lazyload" id="slip_walker_gif" data-src="./media/grad/216/slip_walking_model.gif" class="img-fluid" width="300">
+</div>
 
 <div id="cqpl" class="project well">
   <a href="https://github.com/cyan-at/cqpl" target="_blank">cqpl</a>
