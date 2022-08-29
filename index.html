@@ -97,6 +97,7 @@
       <li><a href="#sym1">sympathy1 / personal fireworks</a></li>
       <li><a href="#sym0">sympathy0 / night kite</a></li>
       -->
+      <li><a href="#fiona57">fiona57 #2022</a></li>
       <li><a href="#cqpl">cadquery partlib #2021</a></li>
       <li><a href="#nightlighter">Nightlighter #2021</a></li>
       <li><a href="#lowriderv2">Lowriderv2 CNC #2020</a></li>
@@ -149,6 +150,23 @@
 </div>
 
 <!-- ----------------------------------------------------- CONTENT -->
+
+<div id="fiona57" class="project well">
+  Basement water emailer: replace beeper circuit with ESP8266 ESP01 emailer circuit.
+  <ul>
+    <li>The water sensor probe is a switch + 28k resistor</li>
+    <li>Power electronics with PNP BJT (2N3906) + P-channel MOSFET (IRF9540)</li>
+    <li>Simulate with online circuit simulator to save time</li>
+    <li>Like a latch circuit where a button turns on a microcontroller, you need to latch the small current from the probe loop to power the 3.3V / 5V microcontroller (ESP8266 ESP01)</li>
+    <li>The voltage across the microcontroller is unreliable / noisy / so you need to regulate it with a <b>3.3V LDO Regulator</b></li>
+    <li>The firmware can put the ESP01 to deep sleep mode after emailing to save power</li>
+    <li>To be more reliable, use a 5v shore power instead of 9v battery so system is always 'powered'</li>
+    <li><a class="example_toggler" href="#fiona57_net">Net</a></li>
+    <li><a class="example_toggler" href="#fiona57_board">Board</a></li>
+  </ul>
+  <img class="toggle_example lazyload" id="fiona57_net" data-src="./media/fiona57/net.png" class="img-fluid" width="300">
+  <img class="toggle_example lazyload" id="fiona57_board" data-src="./media/fiona57/fiona57.jpg" class="img-fluid" width="300">
+</div>
 
 <div id="slip_walker" class="project well">
   Spring-loaded Inverted Pendulum (SLIP) model walking
