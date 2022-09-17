@@ -192,17 +192,20 @@
     <div class="col-md-5">
       <ul>
         <li>Parameterization + reusable CAD + integration with prior work / other software systems</li>
+        <li>Decomposing parts to reusable cads <=> customizing resuable cads to heavily custom parts</li>
         <ul>
           <li><a class="example_toggler" href="#holeplate">convex hull + vector math + parameter = cad function to make a part given a set of holes</a></li>
           <li><a class="example_toggler" href="#holeplate_straightskeleton_polygonoffset">
             inflating a polygon (polygon offseting) is a bit more involved, requiring a <b>straight skeleton</b> (o8EzbZ)</a></li>
+          <li><a class="example_toggler" href="#svg_extrusion">
+            inflating a polyline involves only 2d hom coordinate frame geometry, and allows us to fab a PCB routes on an SLA printer UV screen</a></li>
         </ul>
-        <li>Decomposing parts to reusable cads <=> customizing resuable cads to heavily custom parts</li>
       </ul>
     </div>
     <div class="col-md-7">
       <img class="toggle_example lazyload" id="holeplate" data-src="./media/cqpl/c_00.png" class="img-fluid">
       <img class="toggle_example lazyload" id="holeplate_straightskeleton_polygonoffset" data-src="./media/cqpl/c_02_straightskeleton_polygonoffset.gif" class="img-fluid">
+      <img class="toggle_example lazyload" id="svg_extrusion" data-src="./media/cqpl/svg_extrusion.png" class="img-fluid">
     </div>
   </div>
 </div>
@@ -1565,7 +1568,7 @@
   </ul>
 </div>
 
-<div id="standouts" class="project well">
+<section id="standouts" class="project well">
   Standouts
   <ul>
     <li>the pushcart war: immigrants, invention against authority, a heterogenous front</li>
