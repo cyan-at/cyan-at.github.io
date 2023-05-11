@@ -846,6 +846,22 @@
         <li>Programming as capturing dynamics that cannot be analytically found and meaningless if numerically found</li>
       </ul>
     </li>
+
+    <li><a href="https://www.sciencedirect.com/topics/engineering/drift-vector" target="_blank">Stochastic control</a>
+      <ul>
+        <li>every system with slight complexity becomes stochastic</li>
+        <li>it follows that every system manifests <b><i>x* = f(x, t) + b(x, t)u + g(x, t, w)</i></b></li>
+        <li>event dispatch is a pattern that explicitly tries to anticipate, capture, and purposely expose the system to innovation / noise / stochasticity with <b>temporal coupling</b>, <b>redundancy</b>, and <b>cooperation</b></li>
+      </ul>
+      More explicitly:
+      <ul>
+        <li>blackboard deserialization: capture x</li>
+        <li><b>dispatch</b>: fills in RHS f(x, t) + b1(x, t)u</li>
+        <li><b>finish</b>: we expect stochasticity between dispatch and finish, so finish tries to encode it g1(x, t, w) + b2(x, t)u</li>
+        <li>Then from above, it follows that at the end of an event's lifecycle, <b><i>x* = dispatch() + finish() = f(x, t) + b1(x, t)u + g1(x, t, w) + b2(x, t)u</i></b></li>
+        <li>Last but not least, when <b>finish</b> releases things to the blackboard again it is exposing / priming the system once more to some stochasticity <b><i>g2(x, t, w) + b3(x, t)u</i></b></li>
+      </ul>
+    </li>
   </ul>
 
   <hr><a class="example_toggler" id="ed_details_toggle" href="#ed_details">Details</a>
