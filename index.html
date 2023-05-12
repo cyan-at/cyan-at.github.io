@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
 <head>
   <title>cyan@ portfolio</title>
   <meta name="viewport" content="height=device-height, 
@@ -32,6 +32,19 @@
   <!-- change color scheme via this -->
   <!-- <link rel="stylesheet" href="./css/code_styles/solarized-light.css"> -->
   <link rel="stylesheet" href="./css/code_styles/github.css">
+
+  <!-- katex for latex -->
+  <link rel="stylesheet" href="./css/katex.min.css">
+  <script src="./js/katex.min.js"></script>
+  <script>
+      $(document).ready(function() {
+        katex.render("f(x, t) + b_1(x, t)u", ed_1);
+        katex.render("g_1(x, t, w) + b_2(x, t)u", ed_2);
+        katex.render("\\dot{x} = \\text{dispatch()} + \\text{finish()} = f(x, t) + b_1(x, t)u + g_1(x, t, \\omega) + b_2(x, t)u", ed_3);
+        katex.render("g_2(x, t, \\omega) + b_3(x, t)u", ed_4);
+        katex.render("\\dot{x} = \\text{deserialize()} + \\text{dispatch()} + \\text{finish()} = g_2(x, t, \\omega) + b_3(x, t)u + f(x, t) + b_1(x, t)u + g_1(x, t, \\omega) + b_2(x, t)u", ed_5);
+      });
+  </script> 
 </head>
 <body>
 
@@ -856,11 +869,23 @@
       More explicitly:
       <ul>
         <li>blackboard deserialization: capture x</li>
-        <li><b>dispatch</b>: fills in RHS f(x, t) + b1(x, t)u</li>
-        <li><b>finish</b>: we expect stochasticity between dispatch and finish, so finish tries to encode it g1(x, t, w) + b2(x, t)u</li>
-        <li>Then from above, it follows that at the end of an event's lifecycle, <b><i>x* = dispatch() + finish() = f(x, t) + b1(x, t)u + g1(x, t, w) + b2(x, t)u</i></b></li>
-        <li>Last but not least, when <b>finish</b> releases things to the blackboard again it is exposing / priming the system once more to some stochasticity <b><i>g2(x, t, w) + b3(x, t)u</i></b></li>
-        <li>It follows: x* = deserialize(x) + dispatch() + finish() = g2(x, t, w) + b3(x, t)u + f(x, t) + b1(x, t)u + g1(x, t, w) + b2(x, t)u</li>
+        <li><b>dispatch</b>: fills in RHS
+          <span id="ed_1">...</span>
+        </li>
+        <li><b>finish</b>: we expect stochasticity between dispatch and finish, so finish tries to encode it
+          <span id="ed_2">...</span>
+        </li>
+        <li>Then from above, it follows that at the end of an event's lifecycle,
+          <span id="ed_3">...</span>
+        </li>
+        <li>Last but not least, when <b>finish</b> releases things to the blackboard again it is exposing / priming the system once more to some stochasticity
+          <span id="ed_4">...</span>
+        </li>
+        <li>It follows:
+          <span id="ed_5">
+            ...
+          </span>
+        </li>
       </ul>
     </li>
   </ul>
