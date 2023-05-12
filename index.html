@@ -860,6 +860,7 @@
         <li><b>finish</b>: we expect stochasticity between dispatch and finish, so finish tries to encode it g1(x, t, w) + b2(x, t)u</li>
         <li>Then from above, it follows that at the end of an event's lifecycle, <b><i>x* = dispatch() + finish() = f(x, t) + b1(x, t)u + g1(x, t, w) + b2(x, t)u</i></b></li>
         <li>Last but not least, when <b>finish</b> releases things to the blackboard again it is exposing / priming the system once more to some stochasticity <b><i>g2(x, t, w) + b3(x, t)u</i></b></li>
+        <li>It follows: x* = deserialize(x) + dispatch() + finish() = g2(x, t, w) + b3(x, t)u + f(x, t) + b1(x, t)u + g1(x, t, w) + b2(x, t)u</li>
       </ul>
     </li>
   </ul>
