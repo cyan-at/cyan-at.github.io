@@ -71,7 +71,7 @@ ul {
   text-decoration: line-through;
 }
 
-#lr {
+#bottom_right {
   position: fixed;
   bottom: 10;
   right: 10;
