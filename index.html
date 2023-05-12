@@ -38,10 +38,18 @@
   <script src="./js/katex.min.js"></script>
   <script>
       $(document).ready(function() {
-        katex.render("f(x, t) + b_1(x, t)u", ed_1, {displayMode : true});
-        katex.render("g_1(x, t, w) + b_2(x, t)u", ed_2, {displayMode : true});
-        katex.render("\\begin{align} \\dot{x} & = \\text{dispatch()} + \\text{finish()} \\newline & = f(x, t) + b_1(x, t)u + g_1(x, t, \\omega) + b_2(x, t)u \\end{align}", ed_3, {displayMode : true});
-        katex.render("g_2(x, t, \\omega) + b_3(x, t)u", ed_4, {displayMode : true});
+        katex.render("f(x, t) + b_1(x, t)u",
+          ed_1,
+          {displayMode : true});
+        katex.render("g_1(x, t, w) + b_2(x, t)u",
+          ed_2,
+          {displayMode : true});
+        katex.render("\\begin{align} \\dot{x} & = \\text{dispatch()} + \\text{finish()} \\newline & = f(x, t) + b_1(x, t)u + g_1(x, t, \\omega) + b_2(x, t)u \\end{align}",
+          ed_3,
+          {displayMode : true});
+        katex.render("g_2(x, t, \\omega) + b_3(x, t)u",
+          ed_4,
+          {displayMode : true});
         katex.render("\\begin{align} \\dot{x} & = \\text{deserialize()} + \\text{dispatch()} + \\text{finish()} \\newline & = g_2(x, t, \\omega) + b_3(x, t)u + f(x, t) + b_1(x, t)u + g_1(x, t, \\omega) + b_2(x, t)u \\end{align}",
           ed_5,
           { displayMode : true});
